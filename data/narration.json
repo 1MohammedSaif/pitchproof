@@ -69,7 +69,7 @@
    },
    "narrations": {
     "analyst_en": {
-     "text": "20' Rivergate United: Arjun Mercer scores a opening goal from 14.5 m (xG 0.16, shot speed 107.9 km/h). Score 1-0. Rivergate United held 68.8% of the 5-minute momentum going in.",
+     "text": "20' Rivergate United: Arjun Mercer scores an opening goal from 14.5 m (xG 0.16, shot speed 107.9 km/h). Score 1-0. Rivergate United held 68.8% of the 5-minute momentum going in.",
      "source": "mock-template",
      "attempts": 1,
      "fallback": false
@@ -81,7 +81,7 @@
      "fallback": false
     },
     "casual_en": {
-     "text": "20' GOAL! Arjun Mercer scores for Rivergate United, a opening goal. It's now Rivergate United 1-0 Northbridge Athletic.",
+     "text": "20' GOAL! Arjun Mercer scores for Rivergate United, an opening goal. It's now Rivergate United 1-0 Northbridge Athletic.",
      "source": "mock-template",
      "attempts": 1,
      "fallback": false
@@ -325,7 +325,7 @@
    "agent": "checker",
    "status": "accepted",
    "issues": [],
-   "text": "20' Rivergate United: Arjun Mercer scores a opening goal from 14.5 m (xG 0.16, shot speed 107.9 km/h). Score 1-0. Rivergate United held 68.8% of the 5-minute momentum going in."
+   "text": "20' Rivergate United: Arjun Mercer scores an opening goal from 14.5 m (xG 0.16, shot speed 107.9 km/h). Score 1-0. Rivergate United held 68.8% of the 5-minute momentum going in."
   },
   {
    "moment": "goal_20_166",
@@ -345,7 +345,7 @@
    "agent": "checker",
    "status": "accepted",
    "issues": [],
-   "text": "20' GOAL! Arjun Mercer scores for Rivergate United, a opening goal. It's now Rivergate United 1-0 Northbridge Athletic."
+   "text": "20' GOAL! Arjun Mercer scores for Rivergate United, an opening goal. It's now Rivergate United 1-0 Northbridge Athletic."
   },
   {
    "moment": "goal_20_166",

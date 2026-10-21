@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PitchProof</title>
+<style>
+:root {
+  --bg: #0b1410; --surface: #12201a; --surface2: #182a22; --line: #244034;
+  --text: #e8f1ec; --muted: #9db3a8; --home: #3ddc97; --away: #ffb454;
+  --bad: #ff7b7b; --pitch: #14532d;
+  --font: system-ui, -apple-system, "Segoe UI", "Nirmala UI", "Noto Sans Devanagari", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.5; }
+.wrap { max-width: 1180px; margin: 0 auto; padding: 16px; }
+header { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; }
+h1 { margin: 0; font-size: 1.4rem; letter-spacing: .02em; }
+h1 span { color: var(--home); }
+.tag { color: var(--muted); font-size: .9rem; }
+.scoreboard { display: flex; align-items: center; gap: 14px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 12px; padding: 10px 18px; }
+.team { font-weight: 600; }
+.team.home { color: var(--home); } .team.away { color: var(--away); }
+.score { font-size: 1.8rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.clock { color: var(--muted); font-variant-numeric: tabular-nums; min-width: 3.5em; text-align: right; }
+.controls { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; margin: 14px 0;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; }
+.group { display: flex; align-items: center; gap: 8px; }
+.group > label, .group > .lbl { color: var(--muted); font-size: .85rem; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.seg button { background: transparent; color: var(--text); border: 0; padding: 7px 12px; font: inherit; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--home); color: #04150d; font-weight: 600; }
+.seg button:focus-visible, .play:focus-visible, input[type=range]:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--text); outline-offset: 2px; }
+.play { background: var(--surface2); color: var(--text); border: 1px solid var(--line); border-radius: 8px;
+  padding: 7px 14px; font: inherit; cursor: pointer; }
+input[type=range] { width: 220px; accent-color: var(--home); }
+.grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 14px; }
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 14px; }
+.card h2 { margin: 0 0 8px; font-size: 1rem; }
+svg { width: 100%; height: auto; display: block; }
+.legend { display: flex; gap: 14px; color: var(--muted); font-size: .8rem; margin-top: 6px; flex-wrap: wrap; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
+.feed { display: flex; flex-direction: column; gap: 10px; }
+.moment { border: 1px solid var(--line); background: var(--surface2); border-radius: 10px; padding: 10px 12px; }
+.moment.goal { border-left: 4px solid var(--home); }
+.moment.swing { border-left: 4px solid #6aa7ff; }
+.moment.recap { border-left: 4px solid var(--muted); }
+.mhead { display: flex; gap: 8px; align-items: center; color: var(--muted); font-size: .8rem; margin-bottom: 4px; }
+.min { background: var(--bg); border-radius: 6px; padding: 1px 7px; font-variant-numeric: tabular-nums; color: var(--text); }
+.mtext { margin: 0 0 6px; }
+details { font-size: .8rem; color: var(--muted); }
+summary { cursor: pointer; color: var(--home); width: fit-content; }
+table.ev { border-collapse: collapse; margin-top: 6px; width: 100%; }
+table.ev td { padding: 2px 8px 2px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+table.ev td:first-child { color: var(--muted); white-space: nowrap; }
+.empty { color: var(--muted); font-style: italic; }
+.step { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; margin-top: 8px; background: var(--surface2); }
+.badge { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: .75rem; font-weight: 600; }
+.badge.rejected { background: #3b1717; color: var(--bad); border: 1px solid var(--bad); }
+.badge.accepted { background: #0f2f21; color: var(--home); border: 1px solid var(--home); }
+.note { color: var(--muted); font-size: .8rem; margin-top: 8px; }
+footer { color: var(--muted); font-size: .8rem; padding: 8px 0 24px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Pitch<span>Proof</span></h1>
+      <div class="tag" id="tagline"></div>
+    </div>
+    <div class="scoreboard" role="status" aria-live="polite">
+      <span class="team home" id="homeName"></span>
+      <span class="score" id="score">0 - 0</span>
+      <span class="team away" id="awayName"></span>
+      <span class="clock" id="clock">0'</span>
+    </div>
+  </header>
+
+  <section class="controls" aria-label="Controls">
+    <div class="group"><span class="lbl" id="lblAudience"></span>
+      <div class="seg" role="group" aria-labelledby="lblAudience">
+        <button type="button" data-mode="analyst" id="bAnalyst"></button>
+        <button type="button" data-mode="casual" id="bCasual"></button>
+      </div></div>
+    <div class="group"><span class="lbl" id="lblLang"></span>
+      <div class="seg" role="group" aria-labelledby="lblLang">
+        <button type="button" data-lang="en">English</button>
+        <button type="button" data-lang="hi">हिन्दी</button>
+      </div></div>
+    <div class="group">
+      <button type="button" class="play" id="play"></button>
+      <label for="slider" id="lblMinute"></label>
+      <input type="range" id="slider" min="0" max="90" value="90">
+    </div>
+  </section>
+
+  <div class="grid">
+    <div>
+      <section class="card"><h2 id="hMomentum"></h2>
+        <svg id="momentum" viewBox="0 0 600 170" role="img" aria-label="Momentum chart"></svg>
+        <div class="legend"><span><i class="dot" style="background:var(--home)"></i><span id="legHome"></span></span>
+          <span><i class="dot" style="background:var(--away)"></i><span id="legAway"></span></span></div>
+      </section>
+      <section class="card"><h2 id="hShots"></h2>
+        <svg id="pitch" viewBox="-2 -2 109 72" role="img" aria-label="Shot map"></svg>
+        <div class="legend"><span id="legShots"></span></div>
+      </section>
+    </div>
+    <div>
+      <section class="card"><h2 id="hMoments"></h2><div class="feed" id="feed"></div></section>
+      <section class="card" id="demoCard" hidden><h2 id="hDemo"></h2><div id="demo"></div></section>
+    </div>
+  </div>
+  <footer id="foot"></footer>
+</div>
+
+<script>
+const D = /*__DATA__*/null;
+
+const L = {
+  en: {
+    tagline: "Every number is computed in SQL and verified before it reaches the fan.",
+    audience: "Audience", analyst: "Analyst", casual: "Casual fan", language: "Language",
+    play: "Play", pause: "Pause", minute: "Match minute",
+    momentum: "Momentum: share of attacking activity (5-minute rolling)",
+    shots: "Shot map (bigger circle = higher xG, ringed = goal)",
+    moments: "Key moments", none: "Nothing yet. Press Play or drag the match clock.",
+    kind: { goal: "Goal", swing: "Momentum swing", recap: "Full time" },
+    verified: "Verified against SQL facts", narratedBy: "Narrated by", source: { "mock-template": "offline template" },
+    demoTitle: "Fact-checker in action (simulated fault)",
+    attempt: "Attempt", rejected: "Rejected", accepted: "Accepted",
+    demoNote: "A wrong number is injected on purpose to show the Checker rejecting it and the Narrator repairing it. This does not measure real model accuracy.",
+    foot: "All data is synthetic. Clubs and players are fictional.",
+    ofShare: "share"
+  },
+  hi: {
+    tagline: "हर आँकड़ा SQL में निकाला जाता है और फ़ैन तक पहुँचने से पहले जाँचा जाता है।",
+    audience: "दर्शक", analyst: "विश्लेषक", casual: "आम दर्शक", language: "भाषा",
+    play: "चलाएँ", pause: "रोकें", minute: "मैच मिनट",
+    momentum: "मोमेंटम: आक्रमण गतिविधि का हिस्सा (5 मिनट रोलिंग)",
+    shots: "शॉट मैप (बड़ा घेरा = ज़्यादा xG, रिंग = गोल)",
+    moments: "मुख्य क्षण", none: "अभी कुछ नहीं। चलाएँ दबाएँ या मैच घड़ी खिसकाएँ।",
+    kind: { goal: "गोल", swing: "मोमेंटम बदलाव", recap: "फुल टाइम" },
+    verified: "SQL तथ्यों से सत्यापित", narratedBy: "वर्णन का स्रोत", source: { "mock-template": "ऑफ़लाइन टेम्पलेट" },
+    demoTitle: "फ़ैक्ट-चेकर की कार्यवाही (नकली गलती)",
+    attempt: "प्रयास", rejected: "अस्वीकृत", accepted: "स्वीकृत",
+    demoNote: "चेकर के अस्वीकार करने और नैरेटर के सुधारने को दिखाने के लिए जानबूझकर गलत संख्या डाली गई है। यह असली मॉडल की सटीकता नहीं मापता।",
+    foot: "सारा डेटा सिंथेटिक है। क्लब और खिलाड़ी काल्पनिक हैं।",
+    ofShare: "हिस्सा"
+  }
+};
+
+const state = { mode: "analyst", lang: "en", t: D.match.duration_min, timer: null };
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const COLOR = { HOME: "var(--home)", AWAY: "var(--away)" };
+
+function el(tag, cls, text) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text !== undefined) e.textContent = text;
+  return e;
+}
+
+function labels() {
+  const s = L[state.lang];
+  document.documentElement.lang = state.lang;
+  $("tagline").textContent = s.tagline;
+  $("lblAudience").textContent = s.audience;
+  $("bAnalyst").textContent = s.analyst;
+  $("bCasual").textContent = s.casual;
+  $("lblLang").textContent = s.language;
+  $("lblMinute").textContent = s.minute;
+  $("play").textContent = state.timer ? s.pause : s.play;
+  $("hMomentum").textContent = s.momentum;
+  $("hShots").textContent = s.shots;
+  $("hMoments").textContent = s.moments;
+  $("hDemo").textContent = s.demoTitle;
+  $("foot").textContent = s.foot;
+  $("legHome").textContent = D.match.home_name;
+  $("legAway").textContent = D.match.away_name;
+  $("legShots").textContent = D.match.home_name + " → right, " + D.match.away_name + " → left";
+  document.querySelectorAll("[data-mode]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.mode === state.mode));
+  document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lang === state.lang));
+}
+
+function goalsUpTo(t) {
+  const g = { HOME: 0, AWAY: 0 };
+  D.shots.forEach((s) => { if (s.outcome === "goal" && s.minute <= t) g[s.team] += 1; });
+  return g;
+}
+
+function renderScore() {
+  const g = goalsUpTo(state.t);
+  $("homeName").textContent = D.match.home_name;
+  $("awayName").textContent = D.match.away_name;
+  $("score").textContent = g.HOME + " - " + g.AWAY;
+  $("clock").textContent = state.t + "'";
+}
+
+function renderMomentum() {
+  const W = 600, H = 170, mid = H / 2, dur = D.match.duration_min, bw = W / dur;
+  let out = '<line x1="0" y1="' + mid + '" x2="' + W + '" y2="' + mid + '" stroke="#244034" stroke-width="1"/>';
+  D.momentum.forEach((m) => {
+    if (m.home_share === null || m.minute < 5) return;
+    const h = ((m.home_share - 50) / 50) * (mid - 6);
+    const y = h >= 0 ? mid - h : mid;
+    const live = m.minute <= state.t;
+    out += '<rect x="' + (m.minute * bw).toFixed(1) + '" y="' + y.toFixed(1) + '" width="' + (bw - 1).toFixed(1) +
+      '" height="' + Math.abs(h).toFixed(1) + '" fill="' + (h >= 0 ? COLOR.HOME : COLOR.AWAY) +
+      '" opacity="' + (live ? 0.9 : 0.15) + '"><title>' + m.minute + "' " + m.home_share + "%</title></rect>";
+  });
+  D.shots.filter((s) => s.outcome === "goal" && s.minute <= state.t).forEach((g) => {
+    const x = g.minute * bw + bw / 2, y = g.team === "HOME" ? 10 : H - 10;
+    out += '<line x1="' + x + '" y1="' + (g.team === "HOME" ? 16 : H - 16) + '" x2="' + x + '" y2="' + mid +
+      '" stroke="' + COLOR[g.team] + '" stroke-dasharray="3 3" opacity=".7"/>' +
+      '<circle cx="' + x + '" cy="' + y + '" r="7" fill="' + COLOR[g.team] + '" stroke="#fff" stroke-width="1.5"><title>' +
+      esc(g.player) + " " + g.minute + "'</title></circle>";
+  });
+  const cx = state.t * bw;
+  out += '<line x1="' + cx + '" y1="0" x2="' + cx + '" y2="' + H + '" stroke="#e8f1ec" stroke-width="1.5" opacity=".8"/>';
+  $("momentum").innerHTML = out;
+}
+
+function renderPitch() {
+  const line = 'fill="none" stroke="rgba(255,255,255,.55)" stroke-width=".35"';
+  let out = '<rect x="-2" y="-2" width="109" height="72" rx="2" fill="#0e3b21"/>' +
+    '<rect x="0" y="0" width="105" height="68" fill="var(--pitch)"/>' +
+    '<rect x="0" y="0" width="105" height="68" ' + line + '/>' +
+    '<line x1="52.5" y1="0" x2="52.5" y2="68" ' + line.replace('fill="none" ', "") + '/>' +
+    '<circle cx="52.5" cy="34" r="9.15" ' + line + '/>' +
+    '<rect x="0" y="13.84" width="16.5" height="40.32" ' + line + '/>' +
+    '<rect x="88.5" y="13.84" width="16.5" height="40.32" ' + line + '/>' +
+    '<rect x="0" y="24.84" width="5.5" height="18.32" ' + line + '/>' +
+    '<rect x="99.5" y="24.84" width="5.5" height="18.32" ' + line + '/>';
+  D.shots.filter((s) => s.minute <= state.t).forEach((s) => {
+    const r = 0.9 + s.xg * 5;
+    const goal = s.outcome === "goal";
+    out += '<circle cx="' + s.x + '" cy="' + s.y + '" r="' + r.toFixed(2) + '" fill="' + COLOR[s.team] +
+      '" fill-opacity="' + (goal ? 1 : 0.55) + '" stroke="' + (goal ? "#fff" : "none") + '" stroke-width=".6"><title>' +
+      esc(s.player) + " " + s.minute + "' xG " + s.xg.toFixed(2) + " (" + esc(s.outcome) + ")</title></circle>";
+  });
+  $("pitch").innerHTML = out;
+}
+
+function evidenceTable(ev) {
+  const t = el("table", "ev");
+  Object.keys(ev).forEach((k) => {
+    const tr = el("tr");
+    tr.appendChild(el("td", "", k));
+    tr.appendChild(el("td", "", String(ev[k])));
+    t.appendChild(tr);
+  });
+  return t;
+}
+
+function renderFeed() {
+  const s = L[state.lang], feed = $("feed");
+  feed.replaceChildren();
+  const shown = D.moments.filter((m) => m.minute <= state.t);
+  if (!shown.length) { feed.appendChild(el("div", "empty", s.none)); return; }
+  shown.slice().reverse().forEach((m) => {
+    const n = m.narrations[state.mode + "_" + state.lang];
+    const card = el("article", "moment " + m.kind);
+    const head = el("div", "mhead");
+    head.appendChild(el("span", "min", m.minute + "'"));
+    head.appendChild(el("span", "", s.kind[m.kind] || m.kind));
+    card.appendChild(head);
+    card.appendChild(el("p", "mtext", n.text));
+    const d = el("details");
+    d.appendChild(el("summary", "", "✓ " + s.verified));
+    d.appendChild(el("div", "", s.narratedBy + ": " + (s.source[n.source] || n.source) + " · " + s.attempt + " " + n.attempts));
+    d.appendChild(evidenceTable(m.evidence));
+    card.appendChild(d);
+    feed.appendChild(card);
+  });
+}
+
+function renderDemo() {
+  const s = L[state.lang], box = $("demo");
+  if (!D.demo) { $("demoCard").hidden = true; return; }
+  $("demoCard").hidden = false;
+  box.replaceChildren();
+  D.demo.steps.forEach((st) => {
+    const row = el("div", "step");
+    const top = el("div");
+    top.appendChild(el("span", "badge " + st.status, s.attempt + " " + (st.attempt + 1) + ": " + s[st.status]));
+    row.appendChild(top);
+    row.appendChild(el("p", "mtext", st.text));
+    st.issues.forEach((i) => row.appendChild(el("div", "note", "✗ " + i)));
+    box.appendChild(row);
+  });
+  box.appendChild(el("div", "note", s.demoNote));
+}
+
+function render() { labels(); renderScore(); renderMomentum(); renderPitch(); renderFeed(); renderDemo(); }
+
+document.querySelectorAll("[data-mode]").forEach((b) => b.addEventListener("click", () => { state.mode = b.dataset.mode; render(); }));
+document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => { state.lang = b.dataset.lang; render(); }));
+$("slider").addEventListener("input", (e) => { state.t = Number(e.target.value); render(); });
+$("play").addEventListener("click", () => {
+  if (state.timer) { clearInterval(state.timer); state.timer = null; labels(); return; }
+  if (state.t >= D.match.duration_min) { state.t = 0; }
+  state.timer = setInterval(() => {
+    state.t += 1;
+    $("slider").value = state.t;
+    if (state.t >= D.match.duration_min) { clearInterval(state.timer); state.timer = null; }
+    render();
+  }, 140);
+  render();
+});
+$("slider").max = D.match.duration_min;
+$("slider").value = state.t;
+render();
+</script>
+</body>
+</html>

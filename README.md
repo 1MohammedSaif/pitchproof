@@ -17,7 +17,7 @@ the data. Nothing unverified reaches the viewer.
 | Explain | `src/narrator.py` (Narrator) | Writes each moment for an audience (analyst / casual fan) in English and Hindi |
 | Verify | `src/checker.py` (Checker) | Rejects numbers or names not in the evidence; the Narrator retries with feedback |
 | Orchestrate | `src/pipeline.py` | Handoffs, retry (3 attempts), safe template fallback, full trace log |
-| Render | coming next | Dashboard with analyst and casual modes |
+| Render | `src/build_dashboard.py`, `docs/index.html` | Single-file dashboard: match clock with play, momentum chart, shot map, analyst / casual modes, English / Hindi, per-moment evidence, Checker demo |
 
 ## Quick start (Python 3, no installs)
 
@@ -25,8 +25,20 @@ the data. Nothing unverified reaches the viewer.
 python src/generator.py --seed 26 --out data/match_001.json
 python src/metrics.py --events data/match_001.json --db data/pitchproof.db
 python src/pipeline.py --db data/pitchproof.db --out data/narration.json
+PITCHPROOF_DEMO_FAULT=1 python src/pipeline.py --db data/pitchproof.db --out data/narration_fault_demo.json
+python src/build_dashboard.py          # writes docs/index.html
 python -m unittest discover -s tests -v
 ```
+
+On Windows PowerShell, set the fault flag with `$env:PITCHPROOF_DEMO_FAULT=1` before the command
+(and `Remove-Item Env:PITCHPROOF_DEMO_FAULT` afterwards).
+
+## Dashboard
+
+Open `docs/index.html` in any browser (no server needed). To publish it for free on GitHub Pages:
+repository **Settings -> Pages -> Build and deployment -> Deploy from a branch -> `main` -> `/docs`**.
+Press Play to run the match clock, or drag it. Each narration has a "Verified against SQL facts"
+section that shows the evidence it was checked against and what produced the text.
 
 ## Models
 

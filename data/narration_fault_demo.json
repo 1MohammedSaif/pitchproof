@@ -1,0 +1,809 @@
+{
+ "match": {
+  "match_id": "SYN-0026",
+  "home_name": "Rivergate United",
+  "away_name": "Northbridge Athletic",
+  "home_short": "RGU",
+  "away_short": "NBA",
+  "home_goals": 3,
+  "away_goals": 2,
+  "duration_min": 90
+ },
+ "moments": [
+  {
+   "id": "swing_10",
+   "kind": "swing",
+   "minute": 10,
+   "evidence": {
+    "minute": 10,
+    "team": "Northbridge Athletic",
+    "share_before_pct": 35.5,
+    "share_after_pct": 59.5,
+    "window_minutes": 5
+   },
+   "narrations": {
+    "analyst_en": {
+     "text": "10': momentum swing. Northbridge Athletic's share of the 5-minute rolling momentum rose from 35.5% to 59.5%.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "analyst_hi": {
+     "text": "10 मिनट: मोमेंटम में बदलाव। 5 मिनट की रोलिंग विंडो में Northbridge Athletic का हिस्सा 35.5% से बढ़कर 59.5% हो गया।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_en": {
+     "text": "Around minute 10, Northbridge Athletic took control of the match.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_hi": {
+     "text": "10 मिनट के आसपास Northbridge Athletic ने मैच पर पकड़ बना ली।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    }
+   }
+  },
+  {
+   "id": "goal_20_166",
+   "kind": "goal",
+   "minute": 20,
+   "evidence": {
+    "minute": 20,
+    "team": "Rivergate United",
+    "player": "Arjun Mercer",
+    "situation": "opening goal",
+    "distance_m": 14.5,
+    "xg": 0.162,
+    "shot_speed_kmh": 107.9,
+    "home_goals": 1,
+    "away_goals": 0,
+    "home_team": "Rivergate United",
+    "away_team": "Northbridge Athletic",
+    "momentum_share_pct": 68.8,
+    "window_minutes": 5
+   },
+   "narrations": {
+    "analyst_en": {
+     "text": "20' Rivergate United: Arjun Mercer scores an opening goal from 14.5 m (xG 0.16, shot speed 107.9 km/h). Score 1-0. Rivergate United held 68.8% of the 5-minute momentum going in.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "analyst_hi": {
+     "text": "20 मिनट, Rivergate United: Arjun Mercer ने 14.5 मीटर से पहला गोल किया (xG 0.16, शॉट की गति 107.9 किमी/घंटा)। स्कोर 1-0। गोल से पहले 5 मिनट के मोमेंटम में Rivergate United का हिस्सा 68.8% था।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_en": {
+     "text": "20' GOAL! Arjun Mercer scores for Rivergate United, an opening goal. It's now Rivergate United 1-0 Northbridge Athletic.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_hi": {
+     "text": "20 मिनट: गोल! Rivergate United के लिए Arjun Mercer ने स्कोर किया, पहला गोल। अब स्कोर Rivergate United 1-0 Northbridge Athletic है।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    }
+   }
+  },
+  {
+   "id": "swing_45",
+   "kind": "swing",
+   "minute": 45,
+   "evidence": {
+    "minute": 45,
+    "team": "Rivergate United",
+    "share_before_pct": 52.0,
+    "share_after_pct": 77.4,
+    "window_minutes": 5
+   },
+   "narrations": {
+    "analyst_en": {
+     "text": "45': momentum swing. Rivergate United's share of the 5-minute rolling momentum rose from 52.0% to 77.4%.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "analyst_hi": {
+     "text": "45 मिनट: मोमेंटम में बदलाव। 5 मिनट की रोलिंग विंडो में Rivergate United का हिस्सा 52.0% से बढ़कर 77.4% हो गया।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_en": {
+     "text": "Around minute 45, Rivergate United took control of the match.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_hi": {
+     "text": "45 मिनट के आसपास Rivergate United ने मैच पर पकड़ बना ली।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    }
+   }
+  },
+  {
+   "id": "goal_78_627",
+   "kind": "goal",
+   "minute": 78,
+   "evidence": {
+    "minute": 78,
+    "team": "Northbridge Athletic",
+    "player": "Eli Quill",
+    "situation": "goal that cuts the deficit",
+    "distance_m": 18.8,
+    "xg": 0.085,
+    "shot_speed_kmh": 119.7,
+    "home_goals": 3,
+    "away_goals": 1,
+    "home_team": "Rivergate United",
+    "away_team": "Northbridge Athletic",
+    "momentum_share_pct": 46.4,
+    "window_minutes": 5
+   },
+   "narrations": {
+    "analyst_en": {
+     "text": "78' Northbridge Athletic: Eli Quill scores a goal that cuts the deficit from 18.8 m (xG 0.09, shot speed 119.7 km/h). Score 3-1. Northbridge Athletic held 46.4% of the 5-minute momentum going in.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "analyst_hi": {
+     "text": "78 मिनट, Northbridge Athletic: Eli Quill ने 18.8 मीटर से अंतर कम करने वाला गोल किया (xG 0.09, शॉट की गति 119.7 किमी/घंटा)। स्कोर 3-1। गोल से पहले 5 मिनट के मोमेंटम में Northbridge Athletic का हिस्सा 46.4% था।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_en": {
+     "text": "78' GOAL! Eli Quill scores for Northbridge Athletic, a goal that cuts the deficit. It's now Rivergate United 3-1 Northbridge Athletic.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_hi": {
+     "text": "78 मिनट: गोल! Northbridge Athletic के लिए Eli Quill ने स्कोर किया, अंतर कम करने वाला गोल। अब स्कोर Rivergate United 3-1 Northbridge Athletic है।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    }
+   }
+  },
+  {
+   "id": "goal_82_660",
+   "kind": "goal",
+   "minute": 82,
+   "evidence": {
+    "minute": 82,
+    "team": "Northbridge Athletic",
+    "player": "Tomas Mercer",
+    "situation": "goal that cuts the deficit",
+    "distance_m": 21.5,
+    "xg": 0.053,
+    "shot_speed_kmh": 85.4,
+    "home_goals": 3,
+    "away_goals": 2,
+    "home_team": "Rivergate United",
+    "away_team": "Northbridge Athletic",
+    "momentum_share_pct": 65.9,
+    "window_minutes": 5
+   },
+   "narrations": {
+    "analyst_en": {
+     "text": "82' Northbridge Athletic: Tomas Mercer scores a goal that cuts the deficit from 21.5 m (xG 0.05, shot speed 85.4 km/h). Score 3-2. Northbridge Athletic held 65.9% of the 5-minute momentum going in.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "analyst_hi": {
+     "text": "82 मिनट, Northbridge Athletic: Tomas Mercer ने 21.5 मीटर से अंतर कम करने वाला गोल किया (xG 0.05, शॉट की गति 85.4 किमी/घंटा)। स्कोर 3-2। गोल से पहले 5 मिनट के मोमेंटम में Northbridge Athletic का हिस्सा 65.9% था।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_en": {
+     "text": "82' GOAL! Tomas Mercer scores for Northbridge Athletic, a goal that cuts the deficit. It's now Rivergate United 3-2 Northbridge Athletic.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_hi": {
+     "text": "82 मिनट: गोल! Northbridge Athletic के लिए Tomas Mercer ने स्कोर किया, अंतर कम करने वाला गोल। अब स्कोर Rivergate United 3-2 Northbridge Athletic है।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    }
+   }
+  },
+  {
+   "id": "recap",
+   "kind": "recap",
+   "minute": 90,
+   "evidence": {
+    "home_team": "Rivergate United",
+    "away_team": "Northbridge Athletic",
+    "home_goals": 3,
+    "away_goals": 2,
+    "home_shots": 15,
+    "away_shots": 10,
+    "home_xg": 2.25,
+    "away_xg": 1.17,
+    "home_pass_accuracy_pct": 74.9,
+    "away_pass_accuracy_pct": 72.1
+   },
+   "narrations": {
+    "analyst_en": {
+     "text": "Full time: Rivergate United 3-2 Northbridge Athletic. Shots 15-10, xG 2.25-1.17, pass accuracy 74.9% vs 72.1%.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "analyst_hi": {
+     "text": "फुल टाइम: Rivergate United 3-2 Northbridge Athletic। शॉट 15-10, xG 2.25-1.17, पास सटीकता 74.9% बनाम 72.1%।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_en": {
+     "text": "Full time: Rivergate United 3-2 Northbridge Athletic. Rivergate United had 15 shots to 10 for Northbridge Athletic.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_hi": {
+     "text": "फुल टाइम: Rivergate United 3-2 Northbridge Athletic। Rivergate United ने 15 शॉट लिए, Northbridge Athletic ने 10।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    }
+   }
+  }
+ ],
+ "summary": {
+  "provider": "mock",
+  "narrations": 24,
+  "checker_rejections": 24,
+  "repaired_after_retry": 24,
+  "template_fallbacks": 0,
+  "model_errors": 0
+ },
+ "trace": [
+  {
+   "moment": "swing_10",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 8 is not in the evidence"
+   ],
+   "text": "10': momentum swing. Northbridge Athletic's share of the 8-minute rolling momentum rose from 35.5% to 59.5%."
+  },
+  {
+   "moment": "swing_10",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "10': momentum swing. Northbridge Athletic's share of the 5-minute rolling momentum rose from 35.5% to 59.5%."
+  },
+  {
+   "moment": "swing_10",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 8 is not in the evidence"
+   ],
+   "text": "10 मिनट: मोमेंटम में बदलाव। 8 मिनट की रोलिंग विंडो में Northbridge Athletic का हिस्सा 35.5% से बढ़कर 59.5% हो गया।"
+  },
+  {
+   "moment": "swing_10",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "10 मिनट: मोमेंटम में बदलाव। 5 मिनट की रोलिंग विंडो में Northbridge Athletic का हिस्सा 35.5% से बढ़कर 59.5% हो गया।"
+  },
+  {
+   "moment": "swing_10",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 13 is not in the evidence"
+   ],
+   "text": "Around minute 13, Northbridge Athletic took control of the match."
+  },
+  {
+   "moment": "swing_10",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Around minute 10, Northbridge Athletic took control of the match."
+  },
+  {
+   "moment": "swing_10",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 13 is not in the evidence"
+   ],
+   "text": "13 मिनट के आसपास Northbridge Athletic ने मैच पर पकड़ बना ली।"
+  },
+  {
+   "moment": "swing_10",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "10 मिनट के आसपास Northbridge Athletic ने मैच पर पकड़ बना ली।"
+  },
+  {
+   "moment": "goal_20_166",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 21.8 is not in the evidence"
+   ],
+   "text": "20' Rivergate United: Arjun Mercer scores an opening goal from 21.8 m (xG 0.16, shot speed 107.9 km/h). Score 1-0. Rivergate United held 68.8% of the 5-minute momentum going in."
+  },
+  {
+   "moment": "goal_20_166",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "20' Rivergate United: Arjun Mercer scores an opening goal from 14.5 m (xG 0.16, shot speed 107.9 km/h). Score 1-0. Rivergate United held 68.8% of the 5-minute momentum going in."
+  },
+  {
+   "moment": "goal_20_166",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 21.8 is not in the evidence"
+   ],
+   "text": "20 मिनट, Rivergate United: Arjun Mercer ने 21.8 मीटर से पहला गोल किया (xG 0.16, शॉट की गति 107.9 किमी/घंटा)। स्कोर 1-0। गोल से पहले 5 मिनट के मोमेंटम में Rivergate United का हिस्सा 68.8% था।"
+  },
+  {
+   "moment": "goal_20_166",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "20 मिनट, Rivergate United: Arjun Mercer ने 14.5 मीटर से पहला गोल किया (xG 0.16, शॉट की गति 107.9 किमी/घंटा)। स्कोर 1-0। गोल से पहले 5 मिनट के मोमेंटम में Rivergate United का हिस्सा 68.8% था।"
+  },
+  {
+   "moment": "goal_20_166",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence"
+   ],
+   "text": "20' GOAL! Arjun Mercer scores for Rivergate United, an opening goal. It's now Rivergate United 4-0 Northbridge Athletic."
+  },
+  {
+   "moment": "goal_20_166",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "20' GOAL! Arjun Mercer scores for Rivergate United, an opening goal. It's now Rivergate United 1-0 Northbridge Athletic."
+  },
+  {
+   "moment": "goal_20_166",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence"
+   ],
+   "text": "20 मिनट: गोल! Rivergate United के लिए Arjun Mercer ने स्कोर किया, पहला गोल। अब स्कोर Rivergate United 4-0 Northbridge Athletic है।"
+  },
+  {
+   "moment": "goal_20_166",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "20 मिनट: गोल! Rivergate United के लिए Arjun Mercer ने स्कोर किया, पहला गोल। अब स्कोर Rivergate United 1-0 Northbridge Athletic है।"
+  },
+  {
+   "moment": "swing_45",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 8 is not in the evidence"
+   ],
+   "text": "45': momentum swing. Rivergate United's share of the 8-minute rolling momentum rose from 52.0% to 77.4%."
+  },
+  {
+   "moment": "swing_45",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "45': momentum swing. Rivergate United's share of the 5-minute rolling momentum rose from 52.0% to 77.4%."
+  },
+  {
+   "moment": "swing_45",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 8 is not in the evidence"
+   ],
+   "text": "45 मिनट: मोमेंटम में बदलाव। 8 मिनट की रोलिंग विंडो में Rivergate United का हिस्सा 52.0% से बढ़कर 77.4% हो गया।"
+  },
+  {
+   "moment": "swing_45",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "45 मिनट: मोमेंटम में बदलाव। 5 मिनट की रोलिंग विंडो में Rivergate United का हिस्सा 52.0% से बढ़कर 77.4% हो गया।"
+  },
+  {
+   "moment": "swing_45",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 48 is not in the evidence"
+   ],
+   "text": "Around minute 48, Rivergate United took control of the match."
+  },
+  {
+   "moment": "swing_45",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Around minute 45, Rivergate United took control of the match."
+  },
+  {
+   "moment": "swing_45",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 48 is not in the evidence"
+   ],
+   "text": "48 मिनट के आसपास Rivergate United ने मैच पर पकड़ बना ली।"
+  },
+  {
+   "moment": "swing_45",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "45 मिनट के आसपास Rivergate United ने मैच पर पकड़ बना ली।"
+  },
+  {
+   "moment": "goal_78_627",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 28.3 is not in the evidence"
+   ],
+   "text": "78' Northbridge Athletic: Eli Quill scores a goal that cuts the deficit from 28.3 m (xG 0.09, shot speed 119.7 km/h). Score 3-1. Northbridge Athletic held 46.4% of the 5-minute momentum going in."
+  },
+  {
+   "moment": "goal_78_627",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "78' Northbridge Athletic: Eli Quill scores a goal that cuts the deficit from 18.8 m (xG 0.09, shot speed 119.7 km/h). Score 3-1. Northbridge Athletic held 46.4% of the 5-minute momentum going in."
+  },
+  {
+   "moment": "goal_78_627",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 28.3 is not in the evidence"
+   ],
+   "text": "78 मिनट, Northbridge Athletic: Eli Quill ने 28.3 मीटर से अंतर कम करने वाला गोल किया (xG 0.09, शॉट की गति 119.7 किमी/घंटा)। स्कोर 3-1। गोल से पहले 5 मिनट के मोमेंटम में Northbridge Athletic का हिस्सा 46.4% था।"
+  },
+  {
+   "moment": "goal_78_627",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "78 मिनट, Northbridge Athletic: Eli Quill ने 18.8 मीटर से अंतर कम करने वाला गोल किया (xG 0.09, शॉट की गति 119.7 किमी/घंटा)। स्कोर 3-1। गोल से पहले 5 मिनट के मोमेंटम में Northbridge Athletic का हिस्सा 46.4% था।"
+  },
+  {
+   "moment": "goal_78_627",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 6 is not in the evidence"
+   ],
+   "text": "78' GOAL! Eli Quill scores for Northbridge Athletic, a goal that cuts the deficit. It's now Rivergate United 6-1 Northbridge Athletic."
+  },
+  {
+   "moment": "goal_78_627",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "78' GOAL! Eli Quill scores for Northbridge Athletic, a goal that cuts the deficit. It's now Rivergate United 3-1 Northbridge Athletic."
+  },
+  {
+   "moment": "goal_78_627",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 6 is not in the evidence"
+   ],
+   "text": "78 मिनट: गोल! Northbridge Athletic के लिए Eli Quill ने स्कोर किया, अंतर कम करने वाला गोल। अब स्कोर Rivergate United 6-1 Northbridge Athletic है।"
+  },
+  {
+   "moment": "goal_78_627",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "78 मिनट: गोल! Northbridge Athletic के लिए Eli Quill ने स्कोर किया, अंतर कम करने वाला गोल। अब स्कोर Rivergate United 3-1 Northbridge Athletic है।"
+  },
+  {
+   "moment": "goal_82_660",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 32.3 is not in the evidence"
+   ],
+   "text": "82' Northbridge Athletic: Tomas Mercer scores a goal that cuts the deficit from 32.3 m (xG 0.05, shot speed 85.4 km/h). Score 3-2. Northbridge Athletic held 65.9% of the 5-minute momentum going in."
+  },
+  {
+   "moment": "goal_82_660",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "82' Northbridge Athletic: Tomas Mercer scores a goal that cuts the deficit from 21.5 m (xG 0.05, shot speed 85.4 km/h). Score 3-2. Northbridge Athletic held 65.9% of the 5-minute momentum going in."
+  },
+  {
+   "moment": "goal_82_660",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 32.3 is not in the evidence"
+   ],
+   "text": "82 मिनट, Northbridge Athletic: Tomas Mercer ने 32.3 मीटर से अंतर कम करने वाला गोल किया (xG 0.05, शॉट की गति 85.4 किमी/घंटा)। स्कोर 3-2। गोल से पहले 5 मिनट के मोमेंटम में Northbridge Athletic का हिस्सा 65.9% था।"
+  },
+  {
+   "moment": "goal_82_660",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "82 मिनट, Northbridge Athletic: Tomas Mercer ने 21.5 मीटर से अंतर कम करने वाला गोल किया (xG 0.05, शॉट की गति 85.4 किमी/घंटा)। स्कोर 3-2। गोल से पहले 5 मिनट के मोमेंटम में Northbridge Athletic का हिस्सा 65.9% था।"
+  },
+  {
+   "moment": "goal_82_660",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 6 is not in the evidence"
+   ],
+   "text": "82' GOAL! Tomas Mercer scores for Northbridge Athletic, a goal that cuts the deficit. It's now Rivergate United 6-2 Northbridge Athletic."
+  },
+  {
+   "moment": "goal_82_660",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "82' GOAL! Tomas Mercer scores for Northbridge Athletic, a goal that cuts the deficit. It's now Rivergate United 3-2 Northbridge Athletic."
+  },
+  {
+   "moment": "goal_82_660",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 6 is not in the evidence"
+   ],
+   "text": "82 मिनट: गोल! Northbridge Athletic के लिए Tomas Mercer ने स्कोर किया, अंतर कम करने वाला गोल। अब स्कोर Rivergate United 6-2 Northbridge Athletic है।"
+  },
+  {
+   "moment": "goal_82_660",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "82 मिनट: गोल! Northbridge Athletic के लिए Tomas Mercer ने स्कोर किया, अंतर कम करने वाला गोल। अब स्कोर Rivergate United 3-2 Northbridge Athletic है।"
+  },
+  {
+   "moment": "recap",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 5 is not in the evidence"
+   ],
+   "text": "Full time: Rivergate United 3-5 Northbridge Athletic. Shots 15-10, xG 2.25-1.17, pass accuracy 74.9% vs 72.1%."
+  },
+  {
+   "moment": "recap",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Full time: Rivergate United 3-2 Northbridge Athletic. Shots 15-10, xG 2.25-1.17, pass accuracy 74.9% vs 72.1%."
+  },
+  {
+   "moment": "recap",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 5 is not in the evidence"
+   ],
+   "text": "फुल टाइम: Rivergate United 3-5 Northbridge Athletic। शॉट 15-10, xG 2.25-1.17, पास सटीकता 74.9% बनाम 72.1%।"
+  },
+  {
+   "moment": "recap",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "फुल टाइम: Rivergate United 3-2 Northbridge Athletic। शॉट 15-10, xG 2.25-1.17, पास सटीकता 74.9% बनाम 72.1%।"
+  },
+  {
+   "moment": "recap",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 5 is not in the evidence"
+   ],
+   "text": "Full time: Rivergate United 3-5 Northbridge Athletic. Rivergate United had 15 shots to 10 for Northbridge Athletic."
+  },
+  {
+   "moment": "recap",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Full time: Rivergate United 3-2 Northbridge Athletic. Rivergate United had 15 shots to 10 for Northbridge Athletic."
+  },
+  {
+   "moment": "recap",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 5 is not in the evidence"
+   ],
+   "text": "फुल टाइम: Rivergate United 3-5 Northbridge Athletic। Rivergate United ने 15 शॉट लिए, Northbridge Athletic ने 10।"
+  },
+  {
+   "moment": "recap",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "फुल टाइम: Rivergate United 3-2 Northbridge Athletic। Rivergate United ने 15 शॉट लिए, Northbridge Athletic ने 10।"
+  }
+ ]
+}

@@ -23,13 +23,13 @@ SITUATION_HI = {
 
 TEMPLATES = {
     ("goal", "casual", "en"):
-        "{minute}' GOAL! {player} scores for {team}, a {situation}. "
+        "{minute}' GOAL! {player} scores for {team}, {situation_a}. "
         "It's now {home_team} {home_goals}-{away_goals} {away_team}.",
     ("goal", "casual", "hi"):
         "{minute} मिनट: गोल! {team} के लिए {player} ने स्कोर किया, {situation_hi}। "
         "अब स्कोर {home_team} {home_goals}-{away_goals} {away_team} है।",
     ("goal", "analyst", "en"):
-        "{minute}' {team}: {player} scores a {situation} from {distance_m} m "
+        "{minute}' {team}: {player} scores {situation_a} from {distance_m} m "
         "(xG {xg}, shot speed {shot_speed_kmh} km/h). Score {home_goals}-{away_goals}.{momentum_en}",
     ("goal", "analyst", "hi"):
         "{minute} मिनट, {team}: {player} ने {distance_m} मीटर से {situation_hi} किया "
@@ -69,7 +69,9 @@ def _fmt(ev):
               "share_after_pct", "home_pass_accuracy_pct", "away_pass_accuracy_pct"):
         if k in out:
             out[k] = f"{out[k]:.1f}"
-    out["situation_hi"] = SITUATION_HI.get(ev.get("situation", ""), "")
+    sit = ev.get("situation", "")
+    out["situation_hi"] = SITUATION_HI.get(sit, "")
+    out["situation_a"] = ("an " if sit[:1] in "aeiou" else "a ") + sit if sit else ""
     share = out.get("momentum_share_pct")
     out["momentum_en"] = (f" {ev['team']} held {share}% of the {ev['window_minutes']}-minute momentum going in."
                           if share is not None else "")
