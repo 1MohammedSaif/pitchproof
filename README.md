@@ -3,23 +3,48 @@
 Verifiable match intelligence for football, built for the Microsoft x Premier League
 "Inside the Game" developer hackathon.
 
-**Idea:** every statistic is computed deterministically in SQL. AI agents only narrate
-from those computed facts, and a Checker agent rejects any claim not backed by the data.
+**Idea:** every statistic is computed deterministically in SQL. Agents only narrate from
+those computed facts, and a Checker agent rejects any number or name that is not backed by
+the data. Nothing unverified reaches the viewer.
 
 ## Pipeline
 
-1. **Ingest** - `src/generator.py` produces synthetic, football-realistic match events (fictional clubs and players).
-2. **Interpret** - `src/metrics.py` loads events into SQL and computes momentum, shot quality and pass difficulty.
-3. **Explain** - Analyst + Narrator agents (coming next) explain why key moments mattered.
-4. **Verify** - Checker agent (coming next) validates every number against the SQL facts.
-5. **Render / personalize** - dashboard with analyst and casual-fan modes, English and Hindi (coming next).
+| Stage | Component | What it does |
+|---|---|---|
+| Ingest | `src/generator.py` | Synthetic, football-realistic match events (fictional clubs and players) |
+| Interpret | `sql/schema.sql`, `src/metrics.py` | xG-style shot quality, pass difficulty and rolling momentum, computed in SQL |
+| Explain | `src/moments.py` (Analyst) | Picks key moments (goals, momentum swings, recap) and attaches numeric evidence |
+| Explain | `src/narrator.py` (Narrator) | Writes each moment for an audience (analyst / casual fan) in English and Hindi |
+| Verify | `src/checker.py` (Checker) | Rejects numbers or names not in the evidence; the Narrator retries with feedback |
+| Orchestrate | `src/pipeline.py` | Handoffs, retry (3 attempts), safe template fallback, full trace log |
+| Render | coming next | Dashboard with analyst and casual modes |
 
-## Quick start
+## Quick start (Python 3, no installs)
 
 ```bash
-python src/generator.py --seed 7 --out data/match_001.json
+python src/generator.py --seed 26 --out data/match_001.json
 python src/metrics.py --events data/match_001.json --db data/pitchproof.db
+python src/pipeline.py --db data/pitchproof.db --out data/narration.json
+python -m unittest discover -s tests -v
 ```
+
+## Models
+
+By default the Narrator runs **offline** with deterministic templates (provider `mock`), so
+the whole pipeline and the Checker can be tested without a model. In this mode no language
+model is involved in the narration text.
+
+To use a real model, set environment variables (never commit keys; `.env` is git-ignored):
+
+- **Azure OpenAI / Microsoft Foundry:** `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`,
+  optionally `AZURE_OPENAI_DEPLOYMENT` (default `gpt-4o-mini`)
+- **GitHub Models (opt-in):** `PITCHPROOF_PROVIDER=github` and `GITHUB_MODELS_TOKEN`
+
+## Showing the Checker work
+
+`PITCHPROOF_DEMO_FAULT=1 python src/pipeline.py` simulates a model hallucinating one wrong
+number in each first attempt. The Checker rejects every one and the Narrator's retry passes.
+This is a simulated fault for demonstration, not a measurement of real model accuracy.
 
 ## Data
 
