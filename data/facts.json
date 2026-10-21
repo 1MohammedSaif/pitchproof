@@ -1,0 +1,175 @@
+{
+ "match": {
+  "match_id": "SYN-0026",
+  "home_name": "Rivergate United",
+  "away_name": "Northbridge Athletic",
+  "home_short": "RGU",
+  "away_short": "NBA",
+  "home_goals": 3,
+  "away_goals": 2,
+  "duration_min": 90
+ },
+ "team_shots": [
+  {
+   "team": "AWAY",
+   "shots": 10,
+   "goals": 2,
+   "on_target": 8,
+   "xg": 1.17
+  },
+  {
+   "team": "HOME",
+   "shots": 15,
+   "goals": 3,
+   "on_target": 6,
+   "xg": 2.25
+  }
+ ],
+ "passing": [
+  {
+   "team": "AWAY",
+   "passes": 183,
+   "accuracy_pct": 72.1,
+   "avg_difficulty": 0.58
+  },
+  {
+   "team": "HOME",
+   "passes": 183,
+   "accuracy_pct": 74.9,
+   "avg_difficulty": 0.56
+  }
+ ],
+ "goals": [
+  {
+   "minute": 20,
+   "team": "HOME",
+   "player_name": "Arjun Mercer",
+   "distance_m": 14.5,
+   "xg": 0.162,
+   "shot_speed_kmh": 107.9
+  },
+  {
+   "minute": 45,
+   "team": "HOME",
+   "player_name": "Felix Marlow",
+   "distance_m": 8.7,
+   "xg": 0.451,
+   "shot_speed_kmh": 106.6
+  },
+  {
+   "minute": 50,
+   "team": "HOME",
+   "player_name": "Jonas Quill",
+   "distance_m": 20.7,
+   "xg": 0.068,
+   "shot_speed_kmh": 97.2
+  },
+  {
+   "minute": 78,
+   "team": "AWAY",
+   "player_name": "Eli Quill",
+   "distance_m": 18.8,
+   "xg": 0.085,
+   "shot_speed_kmh": 119.7
+  },
+  {
+   "minute": 82,
+   "team": "AWAY",
+   "player_name": "Tomas Mercer",
+   "distance_m": 21.5,
+   "xg": 0.053,
+   "shot_speed_kmh": 85.4
+  }
+ ],
+ "momentum_swings": [
+  {
+   "minute": 10,
+   "home_share_before": 64.5,
+   "home_share_after": 40.5,
+   "delta": -24.0
+  },
+  {
+   "minute": 13,
+   "home_share_before": 42.9,
+   "home_share_after": 30.0,
+   "delta": -12.9
+  },
+  {
+   "minute": 15,
+   "home_share_before": 27.4,
+   "home_share_after": 50.7,
+   "delta": 23.3
+  },
+  {
+   "minute": 19,
+   "home_share_before": 52.9,
+   "home_share_after": 68.8,
+   "delta": 15.9
+  },
+  {
+   "minute": 24,
+   "home_share_before": 67.3,
+   "home_share_after": 51.4,
+   "delta": -15.9
+  },
+  {
+   "minute": 31,
+   "home_share_before": 70.7,
+   "home_share_after": 58.3,
+   "delta": -12.4
+  },
+  {
+   "minute": 35,
+   "home_share_before": 47.8,
+   "home_share_after": 68.1,
+   "delta": 20.3
+  },
+  {
+   "minute": 40,
+   "home_share_before": 67.2,
+   "home_share_after": 43.2,
+   "delta": -24.0
+  },
+  {
+   "minute": 45,
+   "home_share_before": 52.0,
+   "home_share_after": 77.4,
+   "delta": 25.4
+  },
+  {
+   "minute": 66,
+   "home_share_before": 44.5,
+   "home_share_after": 63.4,
+   "delta": 18.9
+  },
+  {
+   "minute": 78,
+   "home_share_before": 53.6,
+   "home_share_after": 37.1,
+   "delta": -16.5
+  }
+ ],
+ "top_shooters": [
+  {
+   "player_name": "Luca Voss",
+   "team": "HOME",
+   "shots": 4,
+   "goals": 0,
+   "xg": 0.84
+  },
+  {
+   "player_name": "Felix Marlow",
+   "team": "HOME",
+   "shots": 2,
+   "goals": 1,
+   "xg": 0.52
+  },
+  {
+   "player_name": "Arjun Mercer",
+   "team": "HOME",
+   "shots": 2,
+   "goals": 1,
+   "xg": 0.28
+  }
+ ]
+}
