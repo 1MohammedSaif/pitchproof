@@ -14,10 +14,10 @@ the data. Nothing unverified reaches the viewer.
 | Ingest | `src/generator.py` | Synthetic, football-realistic match events (fictional clubs and players) |
 | Interpret | `sql/schema.sql`, `src/metrics.py` | xG-style shot quality, pass difficulty and rolling momentum, computed in SQL |
 | Explain | `src/moments.py` (Analyst) | Picks key moments (goals, momentum swings, recap) and attaches numeric evidence |
-| Explain | `src/narrator.py` (Narrator) | Writes each moment for an audience (analyst / casual fan) in English and Hindi |
-| Verify | `src/checker.py` (Checker) | Rejects numbers or names not in the evidence; the Narrator retries with feedback |
+| Explain | `src/narrator.py` (Narrator) | Writes each moment and each player spotlight for an audience (analyst / casual fan) in English and Hindi |
+| Verify | `src/checker.py` (Checker) | Rejects numbers or names not in the evidence, and numbers attached to the wrong unit ("4 goals" when goals = 1); the Narrator retries with feedback |
 | Orchestrate | `src/pipeline.py` | Handoffs, retry (3 attempts), safe template fallback, full trace log |
-| Render | `src/build_dashboard.py`, `docs/index.html` | Single-file dashboard: match clock with play, momentum chart, shot map, analyst / casual modes, English / Hindi, per-moment evidence, Checker demo |
+| Render | `src/build_dashboard.py`, `docs/index.html` | Single-file dashboard: match clock with play, momentum chart, shot map, analyst / casual modes, English / Hindi, favourite club and favourite player, per-moment evidence, Checker demo |
 
 ## Quick start (Python 3, no installs)
 
@@ -52,11 +52,25 @@ To use a real model, set environment variables (never commit keys; `.env` is git
   optionally `AZURE_OPENAI_DEPLOYMENT` (default `gpt-4o-mini`)
 - **GitHub Models (opt-in):** `PITCHPROOF_PROVIDER=github` and `GITHUB_MODELS_TOKEN`
 
-## Showing the Checker work
+## How well does the Checker work?
 
-`PITCHPROOF_DEMO_FAULT=1 python src/pipeline.py` simulates a model hallucinating one wrong
-number in each first attempt. The Checker rejects every one and the Narrator's retry passes.
-This is a simulated fault for demonstration, not a measurement of real model accuracy.
+Measured on the synthetic demo match (offline templates, 20 automated tests in `tests/`):
+
+- **Injected faults:** `PITCHPROOF_DEMO_FAULT=1 python src/pipeline.py` makes the Narrator print one
+  wrong number per narration on its first attempt. The Checker rejects all 48 and the retry passes.
+- **Mutation test:** every number in every narration is changed one at a time (642 mutations).
+  The Checker rejects 99.1%. The rest are whole-number roundings (72.1% as 72.0%), tolerated on
+  purpose so a model that writes "72%" is not wrongly rejected.
+- **False alarms:** none on the 48 clean narrations.
+
+Why unit binding matters: an early version only checked that a number appeared *somewhere* in the
+evidence, so "scored 4 goals" passed when the player had 1 goal but 4 tackles. The Checker now ties
+each number to its unit (goals, shots, xG, %, minutes, score order, and so on).
+
+Known limits: number words ("three") are not parsed (the Narrator is told to write digits), and a
+figure in free phrasing with no recognised unit is only checked against the whole evidence, so a
+swap there would not be caught. These results come from simulated faults on templates. They are
+not a measurement of how often a real language model makes mistakes; that is untested.
 
 ## Data
 

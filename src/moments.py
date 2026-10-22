@@ -90,3 +90,27 @@ def key_moments(conn, facts, max_moments=5):
             "away_pass_accuracy_pct": ps["AWAY"]["accuracy_pct"],
         }}
     return top + [recap]
+
+
+def player_spotlights(conn, facts, max_players=6):
+    """One spotlight per notable player: every scorer, then the highest-xG shooters.
+
+    Evidence comes straight from the v_player_stats SQL view.
+    """
+    m = facts["match"]
+    names = {"HOME": m["home_name"], "AWAY": m["away_name"]}
+    rows = _rows(conn, "SELECT * FROM v_player_stats")
+    scorers = sorted((r for r in rows if r["goals"] > 0), key=lambda r: (-r["goals"], -r["xg"]))
+    others = sorted((r for r in rows if r["goals"] == 0 and r["shots"] > 0), key=lambda r: -r["xg"])
+    picked = (scorers + others)[:max(max_players, len(scorers))]
+    out = []
+    for r in picked:
+        ev = {"player": r["name"], "team": names[r["team"]], "role": r["role"],
+              "shots": r["shots"], "goals": r["goals"], "xg": r["xg"],
+              "passes": r["passes"], "tackles_won": r["tackles_won"],
+              "pressures": r["pressures"]}
+        if r["pass_accuracy_pct"] is not None:
+            ev["pass_accuracy_pct"] = r["pass_accuracy_pct"]
+        out.append({"id": f"player_{r['player_id']}", "kind": "player",
+                    "minute": m["duration_min"], "importance": 0, "evidence": ev})
+    return out

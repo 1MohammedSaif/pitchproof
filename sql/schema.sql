@@ -1,5 +1,6 @@
 -- PitchProof schema (SQLite for local dev; the same shape maps to Azure SQL).
 
+DROP VIEW IF EXISTS v_player_stats;
 DROP VIEW IF EXISTS v_shots;
 DROP VIEW IF EXISTS v_passes;
 DROP VIEW IF EXISTS v_minute_activity;
@@ -136,3 +137,27 @@ SELECT
 FROM roll h
 JOIN roll a ON a.minute = h.minute AND a.team = 'AWAY'
 WHERE h.team = 'HOME';
+
+-- Per-player season-style line for one match. Every figure is a count or a computed xG.
+CREATE VIEW v_player_stats AS
+SELECT
+    p.player_id, p.name, p.team, p.role,
+    COALESCE(s.shots, 0)        AS shots,
+    COALESCE(s.goals, 0)        AS goals,
+    COALESCE(s.xg, 0)           AS xg,
+    COALESCE(pa.passes, 0)      AS passes,
+    pa.accuracy_pct             AS pass_accuracy_pct,
+    COALESCE(t.tackles_won, 0)  AS tackles_won,
+    COALESCE(pr.pressures, 0)   AS pressures
+FROM players p
+LEFT JOIN (SELECT player_id, COUNT(*) AS shots,
+                  SUM(CASE WHEN outcome = 'goal' THEN 1 ELSE 0 END) AS goals,
+                  ROUND(SUM(xg), 2) AS xg
+           FROM v_shots GROUP BY player_id) s ON s.player_id = p.player_id
+LEFT JOIN (SELECT player_id, COUNT(*) AS passes,
+                  ROUND(100.0 * AVG(completed), 1) AS accuracy_pct
+           FROM v_passes GROUP BY player_id) pa ON pa.player_id = p.player_id
+LEFT JOIN (SELECT player_id, COUNT(*) AS tackles_won
+           FROM events WHERE type = 'tackle' AND won = 1 GROUP BY player_id) t ON t.player_id = p.player_id
+LEFT JOIN (SELECT player_id, COUNT(*) AS pressures
+           FROM events WHERE type = 'pressure' GROUP BY player_id) pr ON pr.player_id = p.player_id;

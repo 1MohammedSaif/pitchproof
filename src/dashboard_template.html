@@ -62,6 +62,13 @@ table.ev td:first-child { color: var(--muted); white-space: nowrap; }
 .badge.rejected { background: #3b1717; color: var(--bad); border: 1px solid var(--bad); }
 .badge.accepted { background: #0f2f21; color: var(--home); border: 1px solid var(--home); }
 .note { color: var(--muted); font-size: .8rem; margin-top: 8px; }
+select { background: var(--surface2); color: var(--text); border: 1px solid var(--line); border-radius: 8px;
+  padding: 6px 8px; font: inherit; max-width: 270px; }
+select:focus-visible { outline: 2px solid var(--text); outline-offset: 2px; }
+.moment.player { border-left: 4px solid var(--text); }
+.chip { display: inline-block; padding: 0 8px; border-radius: 999px; font-size: .72rem; border: 1px solid var(--line); }
+.chip.for { color: var(--home); border-color: var(--home); }
+.chip.against { color: var(--bad); border-color: var(--bad); }
 footer { color: var(--muted); font-size: .8rem; padding: 8px 0 24px; }
 </style>
 </head>
@@ -91,6 +98,8 @@ footer { color: var(--muted); font-size: .8rem; padding: 8px 0 24px; }
         <button type="button" data-lang="en">English</button>
         <button type="button" data-lang="hi">हिन्दी</button>
       </div></div>
+    <div class="group"><label for="selClub" id="lblClub"></label><select id="selClub"></select></div>
+    <div class="group"><label for="selPlayer" id="lblPlayer"></label><select id="selPlayer"></select></div>
     <div class="group">
       <button type="button" class="play" id="play"></button>
       <label for="slider" id="lblMinute"></label>
@@ -135,7 +144,12 @@ const L = {
     attempt: "Attempt", rejected: "Rejected", accepted: "Accepted",
     demoNote: "A wrong number is injected on purpose to show the Checker rejecting it and the Narrator repairing it. This does not measure real model accuracy.",
     foot: "All data is synthetic. Clubs and players are fictional.",
-    ofShare: "share"
+    ofShare: "share",
+    legPlayer: "yellow ring = favourite player",
+    favClub: "Favourite club", favPlayer: "Favourite player", noneOpt: "None",
+    spotlight: "Player spotlight (full-match stats)",
+    chipGoalFor: "Your club scores", chipGoalAgainst: "Against your club",
+    chipSwingFor: "Your club on top", chipSwingAgainst: "Opponent on top"
   },
   hi: {
     tagline: "हर आँकड़ा SQL में निकाला जाता है और फ़ैन तक पहुँचने से पहले जाँचा जाता है।",
@@ -150,11 +164,16 @@ const L = {
     attempt: "प्रयास", rejected: "अस्वीकृत", accepted: "स्वीकृत",
     demoNote: "चेकर के अस्वीकार करने और नैरेटर के सुधारने को दिखाने के लिए जानबूझकर गलत संख्या डाली गई है। यह असली मॉडल की सटीकता नहीं मापता।",
     foot: "सारा डेटा सिंथेटिक है। क्लब और खिलाड़ी काल्पनिक हैं।",
-    ofShare: "हिस्सा"
+    ofShare: "हिस्सा",
+    legPlayer: "पीली रिंग = पसंदीदा खिलाड़ी",
+    favClub: "पसंदीदा क्लब", favPlayer: "पसंदीदा खिलाड़ी", noneOpt: "कोई नहीं",
+    spotlight: "खिलाड़ी स्पॉटलाइट (पूरे मैच के आँकड़े)",
+    chipGoalFor: "आपका क्लब गोल करता है", chipGoalAgainst: "आपके क्लब के ख़िलाफ़",
+    chipSwingFor: "आपका क्लब हावी", chipSwingAgainst: "विरोधी हावी"
   }
 };
 
-const state = { mode: "analyst", lang: "en", t: D.match.duration_min, timer: null };
+const state = { mode: "analyst", lang: "en", t: D.match.duration_min, timer: null, club: "", player: "" };
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const COLOR = { HOME: "var(--home)", AWAY: "var(--away)" };
@@ -175,6 +194,8 @@ function labels() {
   $("bCasual").textContent = s.casual;
   $("lblLang").textContent = s.language;
   $("lblMinute").textContent = s.minute;
+  $("lblClub").textContent = s.favClub;
+  $("lblPlayer").textContent = s.favPlayer;
   $("play").textContent = state.timer ? s.pause : s.play;
   $("hMomentum").textContent = s.momentum;
   $("hShots").textContent = s.shots;
@@ -183,7 +204,8 @@ function labels() {
   $("foot").textContent = s.foot;
   $("legHome").textContent = D.match.home_name;
   $("legAway").textContent = D.match.away_name;
-  $("legShots").textContent = D.match.home_name + " → right, " + D.match.away_name + " → left";
+  $("legShots").textContent = D.match.home_name + " → right, " + D.match.away_name + " → left" +
+    (state.player ? " · " + s.legPlayer : "");
   document.querySelectorAll("[data-mode]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.mode === state.mode));
   document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lang === state.lang));
 }
@@ -240,8 +262,10 @@ function renderPitch() {
   D.shots.filter((s) => s.minute <= state.t).forEach((s) => {
     const r = 0.9 + s.xg * 5;
     const goal = s.outcome === "goal";
+    const mine = state.player && s.player === state.player;
+    const dim = state.player && !mine;
     out += '<circle cx="' + s.x + '" cy="' + s.y + '" r="' + r.toFixed(2) + '" fill="' + COLOR[s.team] +
-      '" fill-opacity="' + (goal ? 1 : 0.55) + '" stroke="' + (goal ? "#fff" : "none") + '" stroke-width=".6"><title>' +
+      '" fill-opacity="' + (dim ? 0.15 : goal ? 1 : 0.55) + '" stroke="' + (mine ? "#ffe066" : goal ? "#fff" : "none") + '" stroke-width="' + (mine ? 1.1 : 0.6) + '"><title>' +
       esc(s.player) + " " + s.minute + "' xG " + s.xg.toFixed(2) + " (" + esc(s.outcome) + ")</title></circle>";
   });
   $("pitch").innerHTML = out;
@@ -258,26 +282,58 @@ function evidenceTable(ev) {
   return t;
 }
 
+function fillSelects() {
+  const s = L[state.lang], club = $("selClub"), pl = $("selPlayer");
+  club.replaceChildren();
+  pl.replaceChildren();
+  [["", s.noneOpt], ["HOME", D.match.home_name], ["AWAY", D.match.away_name]].forEach(([v, t]) => {
+    const o = el("option", "", t); o.value = v; club.appendChild(o);
+  });
+  const none = el("option", "", s.noneOpt); none.value = ""; pl.appendChild(none);
+  (D.spotlights || []).forEach((sp) => {
+    const o = el("option", "", sp.evidence.player + " (" + sp.evidence.team + ")");
+    o.value = sp.evidence.player; pl.appendChild(o);
+  });
+  club.value = state.club;
+  pl.value = state.player;
+}
+
+function clubChip(m) {
+  if (!state.club || (m.kind !== "goal" && m.kind !== "swing")) return null;
+  const s = L[state.lang];
+  const fanTeam = state.club === "HOME" ? D.match.home_name : D.match.away_name;
+  const mine = fanTeam === m.evidence.team;
+  const label = m.kind === "goal" ? (mine ? s.chipGoalFor : s.chipGoalAgainst) : (mine ? s.chipSwingFor : s.chipSwingAgainst);
+  return el("span", "chip " + (mine ? "for" : "against"), label);
+}
+
+function momentCard(m) {
+  const s = L[state.lang];
+  const n = m.narrations[state.mode + "_" + state.lang];
+  const card = el("article", "moment " + m.kind);
+  const head = el("div", "mhead");
+  if (m.kind !== "player") head.appendChild(el("span", "min", m.minute + "'"));
+  head.appendChild(el("span", "", m.kind === "player" ? s.spotlight : (s.kind[m.kind] || m.kind)));
+  const chip = clubChip(m);
+  if (chip) head.appendChild(chip);
+  card.appendChild(head);
+  card.appendChild(el("p", "mtext", n.text));
+  const d = el("details");
+  d.appendChild(el("summary", "", "\u2713 " + s.verified));
+  d.appendChild(el("div", "", s.narratedBy + ": " + (s.source[n.source] || n.source) + " \u00b7 " + s.attempt + " " + n.attempts));
+  d.appendChild(evidenceTable(m.evidence));
+  card.appendChild(d);
+  return card;
+}
+
 function renderFeed() {
   const s = L[state.lang], feed = $("feed");
   feed.replaceChildren();
+  const sp = (D.spotlights || []).find((x) => x.evidence.player === state.player);
+  if (sp) feed.appendChild(momentCard(sp));
   const shown = D.moments.filter((m) => m.minute <= state.t);
   if (!shown.length) { feed.appendChild(el("div", "empty", s.none)); return; }
-  shown.slice().reverse().forEach((m) => {
-    const n = m.narrations[state.mode + "_" + state.lang];
-    const card = el("article", "moment " + m.kind);
-    const head = el("div", "mhead");
-    head.appendChild(el("span", "min", m.minute + "'"));
-    head.appendChild(el("span", "", s.kind[m.kind] || m.kind));
-    card.appendChild(head);
-    card.appendChild(el("p", "mtext", n.text));
-    const d = el("details");
-    d.appendChild(el("summary", "", "✓ " + s.verified));
-    d.appendChild(el("div", "", s.narratedBy + ": " + (s.source[n.source] || n.source) + " · " + s.attempt + " " + n.attempts));
-    d.appendChild(evidenceTable(m.evidence));
-    card.appendChild(d);
-    feed.appendChild(card);
-  });
+  shown.slice().reverse().forEach((m) => feed.appendChild(momentCard(m)));
 }
 
 function renderDemo() {
@@ -300,7 +356,9 @@ function renderDemo() {
 function render() { labels(); renderScore(); renderMomentum(); renderPitch(); renderFeed(); renderDemo(); }
 
 document.querySelectorAll("[data-mode]").forEach((b) => b.addEventListener("click", () => { state.mode = b.dataset.mode; render(); }));
-document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => { state.lang = b.dataset.lang; render(); }));
+document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => { state.lang = b.dataset.lang; fillSelects(); render(); }));
+$("selClub").addEventListener("change", (e) => { state.club = e.target.value; render(); });
+$("selPlayer").addEventListener("change", (e) => { state.player = e.target.value; render(); });
 $("slider").addEventListener("input", (e) => { state.t = Number(e.target.value); render(); });
 $("play").addEventListener("click", () => {
   if (state.timer) { clearInterval(state.timer); state.timer = null; labels(); return; }
@@ -315,6 +373,7 @@ $("play").addEventListener("click", () => {
 });
 $("slider").max = D.match.duration_min;
 $("slider").value = state.t;
+fillSelects();
 render();
 </script>
 </body>

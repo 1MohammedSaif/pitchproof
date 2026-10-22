@@ -56,6 +56,7 @@ def build(db, narration_path, fault_path, out_path):
         "momentum": momentum_series(conn),
         "shots": shot_points(conn),
         "moments": narration["moments"],
+        "spotlights": narration.get("spotlights", []),
         "summary": narration["summary"],
         "demo": checker_demo(fault_path),
     }

@@ -44,6 +44,16 @@ TEMPLATES = {
     ("swing", "analyst", "hi"):
         "{minute} मिनट: मोमेंटम में बदलाव। {window_minutes} मिनट की रोलिंग विंडो में {team} का हिस्सा "
         "{share_before_pct}% से बढ़कर {share_after_pct}% हो गया।",
+    ("player", "casual", "en"):
+        "{player} had {shots} {shots_w} for {team} and {goals_en}.",
+    ("player", "casual", "hi"):
+        "{player} ने {team} के लिए {shots} शॉट {liya_hi}{goals_hi}।",
+    ("player", "analyst", "en"):
+        "{player} ({role}, {team}): {shots} {shots_w}, {goals} {goals_w}, {xg} xG.{passing_en} "
+        "Defensive work: {tackles_won} {tackles_w} won, {pressures} {pressures_w}.",
+    ("player", "analyst", "hi"):
+        "{player} ({role}, {team}): {shots} शॉट, {goals} गोल, {xg} xG।{passing_hi} "
+        "रक्षात्मक योगदान: {tackles_won} टैकल जीते, {pressures} दबाव।",
     ("recap", "casual", "en"):
         "Full time: {home_team} {home_goals}-{away_goals} {away_team}. "
         "{home_team} had {home_shots} shots to {away_shots} for {away_team}.",
@@ -66,7 +76,8 @@ def _fmt(ev):
         if k in out:
             out[k] = f"{out[k]:.2f}"
     for k in ("distance_m", "shot_speed_kmh", "momentum_share_pct", "share_before_pct",
-              "share_after_pct", "home_pass_accuracy_pct", "away_pass_accuracy_pct"):
+              "share_after_pct", "home_pass_accuracy_pct", "away_pass_accuracy_pct",
+              "pass_accuracy_pct"):
         if k in out:
             out[k] = f"{out[k]:.1f}"
     sit = ev.get("situation", "")
@@ -77,6 +88,22 @@ def _fmt(ev):
                           if share is not None else "")
     out["momentum_hi"] = (f" गोल से पहले {ev['window_minutes']} मिनट के मोमेंटम में {ev['team']} का हिस्सा {share}% था।"
                           if share is not None else "")
+    if "tackles_won" in ev:  # player spotlight
+        goals = ev["goals"]
+        plural = lambda n, one, many: one if n == 1 else many
+        out["shots_w"] = plural(ev["shots"], "shot", "shots")
+        out["goals_w"] = plural(goals, "goal", "goals")
+        out["tackles_w"] = plural(ev["tackles_won"], "tackle", "tackles")
+        out["pressures_w"] = plural(ev["pressures"], "pressure", "pressures")
+        out["passes_w"] = plural(ev["passes"], "pass", "passes")
+        out["liya_hi"] = "लिया" if ev["shots"] == 1 else "लिए"
+        out["goals_en"] = f"scored {goals} {out['goals_w']}" if goals > 0 else "did not score"
+        out["goals_hi"] = (f" और {goals} गोल {'किया' if goals == 1 else 'किए'}"
+                           if goals > 0 else " लेकिन गोल नहीं कर सके")
+        acc = out.get("pass_accuracy_pct")
+        has_passes = ev.get("passes", 0) > 0 and acc is not None
+        out["passing_en"] = f" Passing: {ev['passes']} {out['passes_w']} at {acc}% accuracy." if has_passes else ""
+        out["passing_hi"] = f" पासिंग: {ev['passes']} पास, सटीकता {acc}%।" if has_passes else ""
     return out
 
 

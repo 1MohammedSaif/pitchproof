@@ -268,11 +268,271 @@
    }
   }
  ],
+ "spotlights": [
+  {
+   "id": "player_H08",
+   "kind": "player",
+   "minute": 90,
+   "evidence": {
+    "player": "Felix Marlow",
+    "team": "Rivergate United",
+    "role": "CM",
+    "shots": 2,
+    "goals": 1,
+    "xg": 0.52,
+    "passes": 23,
+    "tackles_won": 3,
+    "pressures": 10,
+    "pass_accuracy_pct": 82.6
+   },
+   "narrations": {
+    "analyst_en": {
+     "text": "Felix Marlow (CM, Rivergate United): 2 shots, 1 goal, 0.52 xG. Passing: 23 passes at 82.6% accuracy. Defensive work: 3 tackles won, 10 pressures.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "analyst_hi": {
+     "text": "Felix Marlow (CM, Rivergate United): 2 शॉट, 1 गोल, 0.52 xG। पासिंग: 23 पास, सटीकता 82.6%। रक्षात्मक योगदान: 3 टैकल जीते, 10 दबाव।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_en": {
+     "text": "Felix Marlow had 2 shots for Rivergate United and scored 1 goal.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_hi": {
+     "text": "Felix Marlow ने Rivergate United के लिए 2 शॉट लिए और 1 गोल किया।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    }
+   }
+  },
+  {
+   "id": "player_H11",
+   "kind": "player",
+   "minute": 90,
+   "evidence": {
+    "player": "Arjun Mercer",
+    "team": "Rivergate United",
+    "role": "ST",
+    "shots": 2,
+    "goals": 1,
+    "xg": 0.28,
+    "passes": 7,
+    "tackles_won": 2,
+    "pressures": 6,
+    "pass_accuracy_pct": 71.4
+   },
+   "narrations": {
+    "analyst_en": {
+     "text": "Arjun Mercer (ST, Rivergate United): 2 shots, 1 goal, 0.28 xG. Passing: 7 passes at 71.4% accuracy. Defensive work: 2 tackles won, 6 pressures.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "analyst_hi": {
+     "text": "Arjun Mercer (ST, Rivergate United): 2 शॉट, 1 गोल, 0.28 xG। पासिंग: 7 पास, सटीकता 71.4%। रक्षात्मक योगदान: 2 टैकल जीते, 6 दबाव।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_en": {
+     "text": "Arjun Mercer had 2 shots for Rivergate United and scored 1 goal.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_hi": {
+     "text": "Arjun Mercer ने Rivergate United के लिए 2 शॉट लिए और 1 गोल किया।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    }
+   }
+  },
+  {
+   "id": "player_A06",
+   "kind": "player",
+   "minute": 90,
+   "evidence": {
+    "player": "Tomas Mercer",
+    "team": "Northbridge Athletic",
+    "role": "RM",
+    "shots": 3,
+    "goals": 1,
+    "xg": 0.27,
+    "passes": 29,
+    "tackles_won": 4,
+    "pressures": 4,
+    "pass_accuracy_pct": 62.1
+   },
+   "narrations": {
+    "analyst_en": {
+     "text": "Tomas Mercer (RM, Northbridge Athletic): 3 shots, 1 goal, 0.27 xG. Passing: 29 passes at 62.1% accuracy. Defensive work: 4 tackles won, 4 pressures.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "analyst_hi": {
+     "text": "Tomas Mercer (RM, Northbridge Athletic): 3 शॉट, 1 गोल, 0.27 xG। पासिंग: 29 पास, सटीकता 62.1%। रक्षात्मक योगदान: 4 टैकल जीते, 4 दबाव।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_en": {
+     "text": "Tomas Mercer had 3 shots for Northbridge Athletic and scored 1 goal.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_hi": {
+     "text": "Tomas Mercer ने Northbridge Athletic के लिए 3 शॉट लिए और 1 गोल किया।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    }
+   }
+  },
+  {
+   "id": "player_A02",
+   "kind": "player",
+   "minute": 90,
+   "evidence": {
+    "player": "Eli Quill",
+    "team": "Northbridge Athletic",
+    "role": "RB",
+    "shots": 1,
+    "goals": 1,
+    "xg": 0.09,
+    "passes": 16,
+    "tackles_won": 1,
+    "pressures": 3,
+    "pass_accuracy_pct": 81.3
+   },
+   "narrations": {
+    "analyst_en": {
+     "text": "Eli Quill (RB, Northbridge Athletic): 1 shot, 1 goal, 0.09 xG. Passing: 16 passes at 81.3% accuracy. Defensive work: 1 tackle won, 3 pressures.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "analyst_hi": {
+     "text": "Eli Quill (RB, Northbridge Athletic): 1 शॉट, 1 गोल, 0.09 xG। पासिंग: 16 पास, सटीकता 81.3%। रक्षात्मक योगदान: 1 टैकल जीते, 3 दबाव।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_en": {
+     "text": "Eli Quill had 1 shot for Northbridge Athletic and scored 1 goal.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_hi": {
+     "text": "Eli Quill ने Northbridge Athletic के लिए 1 शॉट लिया और 1 गोल किया।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    }
+   }
+  },
+  {
+   "id": "player_H05",
+   "kind": "player",
+   "minute": 90,
+   "evidence": {
+    "player": "Jonas Quill",
+    "team": "Rivergate United",
+    "role": "LB",
+    "shots": 1,
+    "goals": 1,
+    "xg": 0.07,
+    "passes": 13,
+    "tackles_won": 3,
+    "pressures": 3,
+    "pass_accuracy_pct": 69.2
+   },
+   "narrations": {
+    "analyst_en": {
+     "text": "Jonas Quill (LB, Rivergate United): 1 shot, 1 goal, 0.07 xG. Passing: 13 passes at 69.2% accuracy. Defensive work: 3 tackles won, 3 pressures.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "analyst_hi": {
+     "text": "Jonas Quill (LB, Rivergate United): 1 शॉट, 1 गोल, 0.07 xG। पासिंग: 13 पास, सटीकता 69.2%। रक्षात्मक योगदान: 3 टैकल जीते, 3 दबाव।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_en": {
+     "text": "Jonas Quill had 1 shot for Rivergate United and scored 1 goal.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_hi": {
+     "text": "Jonas Quill ने Rivergate United के लिए 1 शॉट लिया और 1 गोल किया।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    }
+   }
+  },
+  {
+   "id": "player_H09",
+   "kind": "player",
+   "minute": 90,
+   "evidence": {
+    "player": "Luca Voss",
+    "team": "Rivergate United",
+    "role": "LM",
+    "shots": 4,
+    "goals": 0,
+    "xg": 0.84,
+    "passes": 26,
+    "tackles_won": 1,
+    "pressures": 7,
+    "pass_accuracy_pct": 73.1
+   },
+   "narrations": {
+    "analyst_en": {
+     "text": "Luca Voss (LM, Rivergate United): 4 shots, 0 goals, 0.84 xG. Passing: 26 passes at 73.1% accuracy. Defensive work: 1 tackle won, 7 pressures.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "analyst_hi": {
+     "text": "Luca Voss (LM, Rivergate United): 4 शॉट, 0 गोल, 0.84 xG। पासिंग: 26 पास, सटीकता 73.1%। रक्षात्मक योगदान: 1 टैकल जीते, 7 दबाव।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_en": {
+     "text": "Luca Voss had 4 shots for Rivergate United and did not score.",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    },
+    "casual_hi": {
+     "text": "Luca Voss ने Rivergate United के लिए 4 शॉट लिए लेकिन गोल नहीं कर सके।",
+     "source": "mock-template",
+     "attempts": 2,
+     "fallback": false
+    }
+   }
+  }
+ ],
  "summary": {
   "provider": "mock",
-  "narrations": 24,
-  "checker_rejections": 24,
-  "repaired_after_retry": 24,
+  "narrations": 48,
+  "checker_rejections": 48,
+  "repaired_after_retry": 48,
   "template_fallbacks": 0,
   "model_errors": 0
  },
@@ -285,7 +545,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 8 is not in the evidence"
+    "number 8 is not in the evidence",
+    "8 is not a valid window length value"
    ],
    "text": "10': momentum swing. Northbridge Athletic's share of the 8-minute rolling momentum rose from 35.5% to 59.5%."
   },
@@ -307,7 +568,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 8 is not in the evidence"
+    "number 8 is not in the evidence",
+    "8 is not a valid minute value"
    ],
    "text": "10 मिनट: मोमेंटम में बदलाव। 8 मिनट की रोलिंग विंडो में Northbridge Athletic का हिस्सा 35.5% से बढ़कर 59.5% हो गया।"
   },
@@ -329,7 +591,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 13 is not in the evidence"
+    "number 13 is not in the evidence",
+    "13 is not a valid minute value"
    ],
    "text": "Around minute 13, Northbridge Athletic took control of the match."
   },
@@ -351,7 +614,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 13 is not in the evidence"
+    "number 13 is not in the evidence",
+    "13 is not a valid minute value"
    ],
    "text": "13 मिनट के आसपास Northbridge Athletic ने मैच पर पकड़ बना ली।"
   },
@@ -373,7 +637,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 21.8 is not in the evidence"
+    "number 21.8 is not in the evidence",
+    "21.8 is not a valid distance value"
    ],
    "text": "20' Rivergate United: Arjun Mercer scores an opening goal from 21.8 m (xG 0.16, shot speed 107.9 km/h). Score 1-0. Rivergate United held 68.8% of the 5-minute momentum going in."
   },
@@ -395,7 +660,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 21.8 is not in the evidence"
+    "number 21.8 is not in the evidence",
+    "21.8 is not a valid distance value"
    ],
    "text": "20 मिनट, Rivergate United: Arjun Mercer ने 21.8 मीटर से पहला गोल किया (xG 0.16, शॉट की गति 107.9 किमी/घंटा)। स्कोर 1-0। गोल से पहले 5 मिनट के मोमेंटम में Rivergate United का हिस्सा 68.8% था।"
   },
@@ -417,7 +683,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 4 is not in the evidence"
+    "number 4 is not in the evidence",
+    "score 4-0 does not match the evidence"
    ],
    "text": "20' GOAL! Arjun Mercer scores for Rivergate United, an opening goal. It's now Rivergate United 4-0 Northbridge Athletic."
   },
@@ -439,7 +706,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 4 is not in the evidence"
+    "number 4 is not in the evidence",
+    "score 4-0 does not match the evidence"
    ],
    "text": "20 मिनट: गोल! Rivergate United के लिए Arjun Mercer ने स्कोर किया, पहला गोल। अब स्कोर Rivergate United 4-0 Northbridge Athletic है।"
   },
@@ -461,7 +729,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 8 is not in the evidence"
+    "number 8 is not in the evidence",
+    "8 is not a valid window length value"
    ],
    "text": "45': momentum swing. Rivergate United's share of the 8-minute rolling momentum rose from 52.0% to 77.4%."
   },
@@ -483,7 +752,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 8 is not in the evidence"
+    "number 8 is not in the evidence",
+    "8 is not a valid minute value"
    ],
    "text": "45 मिनट: मोमेंटम में बदलाव। 8 मिनट की रोलिंग विंडो में Rivergate United का हिस्सा 52.0% से बढ़कर 77.4% हो गया।"
   },
@@ -505,7 +775,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 48 is not in the evidence"
+    "number 48 is not in the evidence",
+    "48 is not a valid minute value"
    ],
    "text": "Around minute 48, Rivergate United took control of the match."
   },
@@ -527,7 +798,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 48 is not in the evidence"
+    "number 48 is not in the evidence",
+    "48 is not a valid minute value"
    ],
    "text": "48 मिनट के आसपास Rivergate United ने मैच पर पकड़ बना ली।"
   },
@@ -549,7 +821,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 28.3 is not in the evidence"
+    "number 28.3 is not in the evidence",
+    "28.3 is not a valid distance value"
    ],
    "text": "78' Northbridge Athletic: Eli Quill scores a goal that cuts the deficit from 28.3 m (xG 0.09, shot speed 119.7 km/h). Score 3-1. Northbridge Athletic held 46.4% of the 5-minute momentum going in."
   },
@@ -571,7 +844,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 28.3 is not in the evidence"
+    "number 28.3 is not in the evidence",
+    "28.3 is not a valid distance value"
    ],
    "text": "78 मिनट, Northbridge Athletic: Eli Quill ने 28.3 मीटर से अंतर कम करने वाला गोल किया (xG 0.09, शॉट की गति 119.7 किमी/घंटा)। स्कोर 3-1। गोल से पहले 5 मिनट के मोमेंटम में Northbridge Athletic का हिस्सा 46.4% था।"
   },
@@ -593,7 +867,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 6 is not in the evidence"
+    "number 6 is not in the evidence",
+    "score 6-1 does not match the evidence"
    ],
    "text": "78' GOAL! Eli Quill scores for Northbridge Athletic, a goal that cuts the deficit. It's now Rivergate United 6-1 Northbridge Athletic."
   },
@@ -615,7 +890,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 6 is not in the evidence"
+    "number 6 is not in the evidence",
+    "score 6-1 does not match the evidence"
    ],
    "text": "78 मिनट: गोल! Northbridge Athletic के लिए Eli Quill ने स्कोर किया, अंतर कम करने वाला गोल। अब स्कोर Rivergate United 6-1 Northbridge Athletic है।"
   },
@@ -637,7 +913,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 32.3 is not in the evidence"
+    "number 32.3 is not in the evidence",
+    "32.3 is not a valid distance value"
    ],
    "text": "82' Northbridge Athletic: Tomas Mercer scores a goal that cuts the deficit from 32.3 m (xG 0.05, shot speed 85.4 km/h). Score 3-2. Northbridge Athletic held 65.9% of the 5-minute momentum going in."
   },
@@ -659,7 +936,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 32.3 is not in the evidence"
+    "number 32.3 is not in the evidence",
+    "32.3 is not a valid distance value"
    ],
    "text": "82 मिनट, Northbridge Athletic: Tomas Mercer ने 32.3 मीटर से अंतर कम करने वाला गोल किया (xG 0.05, शॉट की गति 85.4 किमी/घंटा)। स्कोर 3-2। गोल से पहले 5 मिनट के मोमेंटम में Northbridge Athletic का हिस्सा 65.9% था।"
   },
@@ -681,7 +959,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 6 is not in the evidence"
+    "number 6 is not in the evidence",
+    "score 6-2 does not match the evidence"
    ],
    "text": "82' GOAL! Tomas Mercer scores for Northbridge Athletic, a goal that cuts the deficit. It's now Rivergate United 6-2 Northbridge Athletic."
   },
@@ -703,7 +982,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 6 is not in the evidence"
+    "number 6 is not in the evidence",
+    "score 6-2 does not match the evidence"
    ],
    "text": "82 मिनट: गोल! Northbridge Athletic के लिए Tomas Mercer ने स्कोर किया, अंतर कम करने वाला गोल। अब स्कोर Rivergate United 6-2 Northbridge Athletic है।"
   },
@@ -725,7 +1005,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 5 is not in the evidence"
+    "number 5 is not in the evidence",
+    "score 3-5 does not match the evidence"
    ],
    "text": "Full time: Rivergate United 3-5 Northbridge Athletic. Shots 15-10, xG 2.25-1.17, pass accuracy 74.9% vs 72.1%."
   },
@@ -747,7 +1028,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 5 is not in the evidence"
+    "number 5 is not in the evidence",
+    "score 3-5 does not match the evidence"
    ],
    "text": "फुल टाइम: Rivergate United 3-5 Northbridge Athletic। शॉट 15-10, xG 2.25-1.17, पास सटीकता 74.9% बनाम 72.1%।"
   },
@@ -769,7 +1051,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 5 is not in the evidence"
+    "number 5 is not in the evidence",
+    "score 3-5 does not match the evidence"
    ],
    "text": "Full time: Rivergate United 3-5 Northbridge Athletic. Rivergate United had 15 shots to 10 for Northbridge Athletic."
   },
@@ -791,7 +1074,8 @@
    "agent": "checker",
    "status": "rejected",
    "issues": [
-    "number 5 is not in the evidence"
+    "number 5 is not in the evidence",
+    "score 3-5 does not match the evidence"
    ],
    "text": "फुल टाइम: Rivergate United 3-5 Northbridge Athletic। Rivergate United ने 15 शॉट लिए, Northbridge Athletic ने 10।"
   },
@@ -804,6 +1088,552 @@
    "status": "accepted",
    "issues": [],
    "text": "फुल टाइम: Rivergate United 3-2 Northbridge Athletic। Rivergate United ने 15 शॉट लिए, Northbridge Athletic ने 10।"
+  },
+  {
+   "moment": "player_H08",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Felix Marlow (CM, Rivergate United): 2 shots, 4 goal, 0.52 xG. Passing: 23 passes at 82.6% accuracy. Defensive work: 3 tackles won, 10 pressures."
+  },
+  {
+   "moment": "player_H08",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Felix Marlow (CM, Rivergate United): 2 shots, 1 goal, 0.52 xG. Passing: 23 passes at 82.6% accuracy. Defensive work: 3 tackles won, 10 pressures."
+  },
+  {
+   "moment": "player_H08",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Felix Marlow (CM, Rivergate United): 2 शॉट, 4 गोल, 0.52 xG। पासिंग: 23 पास, सटीकता 82.6%। रक्षात्मक योगदान: 3 टैकल जीते, 10 दबाव।"
+  },
+  {
+   "moment": "player_H08",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Felix Marlow (CM, Rivergate United): 2 शॉट, 1 गोल, 0.52 xG। पासिंग: 23 पास, सटीकता 82.6%। रक्षात्मक योगदान: 3 टैकल जीते, 10 दबाव।"
+  },
+  {
+   "moment": "player_H08",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Felix Marlow had 2 shots for Rivergate United and scored 4 goal."
+  },
+  {
+   "moment": "player_H08",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Felix Marlow had 2 shots for Rivergate United and scored 1 goal."
+  },
+  {
+   "moment": "player_H08",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Felix Marlow ने Rivergate United के लिए 2 शॉट लिए और 4 गोल किया।"
+  },
+  {
+   "moment": "player_H08",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Felix Marlow ने Rivergate United के लिए 2 शॉट लिए और 1 गोल किया।"
+  },
+  {
+   "moment": "player_H11",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Arjun Mercer (ST, Rivergate United): 2 shots, 4 goal, 0.28 xG. Passing: 7 passes at 71.4% accuracy. Defensive work: 2 tackles won, 6 pressures."
+  },
+  {
+   "moment": "player_H11",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Arjun Mercer (ST, Rivergate United): 2 shots, 1 goal, 0.28 xG. Passing: 7 passes at 71.4% accuracy. Defensive work: 2 tackles won, 6 pressures."
+  },
+  {
+   "moment": "player_H11",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Arjun Mercer (ST, Rivergate United): 2 शॉट, 4 गोल, 0.28 xG। पासिंग: 7 पास, सटीकता 71.4%। रक्षात्मक योगदान: 2 टैकल जीते, 6 दबाव।"
+  },
+  {
+   "moment": "player_H11",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Arjun Mercer (ST, Rivergate United): 2 शॉट, 1 गोल, 0.28 xG। पासिंग: 7 पास, सटीकता 71.4%। रक्षात्मक योगदान: 2 टैकल जीते, 6 दबाव।"
+  },
+  {
+   "moment": "player_H11",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Arjun Mercer had 2 shots for Rivergate United and scored 4 goal."
+  },
+  {
+   "moment": "player_H11",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Arjun Mercer had 2 shots for Rivergate United and scored 1 goal."
+  },
+  {
+   "moment": "player_H11",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Arjun Mercer ने Rivergate United के लिए 2 शॉट लिए और 4 गोल किया।"
+  },
+  {
+   "moment": "player_H11",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Arjun Mercer ने Rivergate United के लिए 2 शॉट लिए और 1 गोल किया।"
+  },
+  {
+   "moment": "player_A06",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "4 is not a valid goals value"
+   ],
+   "text": "Tomas Mercer (RM, Northbridge Athletic): 3 shots, 4 goal, 0.27 xG. Passing: 29 passes at 62.1% accuracy. Defensive work: 4 tackles won, 4 pressures."
+  },
+  {
+   "moment": "player_A06",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Tomas Mercer (RM, Northbridge Athletic): 3 shots, 1 goal, 0.27 xG. Passing: 29 passes at 62.1% accuracy. Defensive work: 4 tackles won, 4 pressures."
+  },
+  {
+   "moment": "player_A06",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "4 is not a valid goals value"
+   ],
+   "text": "Tomas Mercer (RM, Northbridge Athletic): 3 शॉट, 4 गोल, 0.27 xG। पासिंग: 29 पास, सटीकता 62.1%। रक्षात्मक योगदान: 4 टैकल जीते, 4 दबाव।"
+  },
+  {
+   "moment": "player_A06",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Tomas Mercer (RM, Northbridge Athletic): 3 शॉट, 1 गोल, 0.27 xG। पासिंग: 29 पास, सटीकता 62.1%। रक्षात्मक योगदान: 4 टैकल जीते, 4 दबाव।"
+  },
+  {
+   "moment": "player_A06",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "4 is not a valid goals value"
+   ],
+   "text": "Tomas Mercer had 3 shots for Northbridge Athletic and scored 4 goal."
+  },
+  {
+   "moment": "player_A06",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Tomas Mercer had 3 shots for Northbridge Athletic and scored 1 goal."
+  },
+  {
+   "moment": "player_A06",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "4 is not a valid goals value"
+   ],
+   "text": "Tomas Mercer ने Northbridge Athletic के लिए 3 शॉट लिए और 4 गोल किया।"
+  },
+  {
+   "moment": "player_A06",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Tomas Mercer ने Northbridge Athletic के लिए 3 शॉट लिए और 1 गोल किया।"
+  },
+  {
+   "moment": "player_A02",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Eli Quill (RB, Northbridge Athletic): 1 shot, 4 goal, 0.09 xG. Passing: 16 passes at 81.3% accuracy. Defensive work: 1 tackle won, 3 pressures."
+  },
+  {
+   "moment": "player_A02",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Eli Quill (RB, Northbridge Athletic): 1 shot, 1 goal, 0.09 xG. Passing: 16 passes at 81.3% accuracy. Defensive work: 1 tackle won, 3 pressures."
+  },
+  {
+   "moment": "player_A02",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Eli Quill (RB, Northbridge Athletic): 1 शॉट, 4 गोल, 0.09 xG। पासिंग: 16 पास, सटीकता 81.3%। रक्षात्मक योगदान: 1 टैकल जीते, 3 दबाव।"
+  },
+  {
+   "moment": "player_A02",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Eli Quill (RB, Northbridge Athletic): 1 शॉट, 1 गोल, 0.09 xG। पासिंग: 16 पास, सटीकता 81.3%। रक्षात्मक योगदान: 1 टैकल जीते, 3 दबाव।"
+  },
+  {
+   "moment": "player_A02",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Eli Quill had 1 shot for Northbridge Athletic and scored 4 goal."
+  },
+  {
+   "moment": "player_A02",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Eli Quill had 1 shot for Northbridge Athletic and scored 1 goal."
+  },
+  {
+   "moment": "player_A02",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Eli Quill ने Northbridge Athletic के लिए 1 शॉट लिया और 4 गोल किया।"
+  },
+  {
+   "moment": "player_A02",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Eli Quill ने Northbridge Athletic के लिए 1 शॉट लिया और 1 गोल किया।"
+  },
+  {
+   "moment": "player_H05",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Jonas Quill (LB, Rivergate United): 1 shot, 4 goal, 0.07 xG. Passing: 13 passes at 69.2% accuracy. Defensive work: 3 tackles won, 3 pressures."
+  },
+  {
+   "moment": "player_H05",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Jonas Quill (LB, Rivergate United): 1 shot, 1 goal, 0.07 xG. Passing: 13 passes at 69.2% accuracy. Defensive work: 3 tackles won, 3 pressures."
+  },
+  {
+   "moment": "player_H05",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Jonas Quill (LB, Rivergate United): 1 शॉट, 4 गोल, 0.07 xG। पासिंग: 13 पास, सटीकता 69.2%। रक्षात्मक योगदान: 3 टैकल जीते, 3 दबाव।"
+  },
+  {
+   "moment": "player_H05",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Jonas Quill (LB, Rivergate United): 1 शॉट, 1 गोल, 0.07 xG। पासिंग: 13 पास, सटीकता 69.2%। रक्षात्मक योगदान: 3 टैकल जीते, 3 दबाव।"
+  },
+  {
+   "moment": "player_H05",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Jonas Quill had 1 shot for Rivergate United and scored 4 goal."
+  },
+  {
+   "moment": "player_H05",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Jonas Quill had 1 shot for Rivergate United and scored 1 goal."
+  },
+  {
+   "moment": "player_H05",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 4 is not in the evidence",
+    "4 is not a valid goals value"
+   ],
+   "text": "Jonas Quill ने Rivergate United के लिए 1 शॉट लिया और 4 गोल किया।"
+  },
+  {
+   "moment": "player_H05",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Jonas Quill ने Rivergate United के लिए 1 शॉट लिया और 1 गोल किया।"
+  },
+  {
+   "moment": "player_H09",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 3 is not in the evidence",
+    "3 is not a valid goals value"
+   ],
+   "text": "Luca Voss (LM, Rivergate United): 4 shots, 3 goals, 0.84 xG. Passing: 26 passes at 73.1% accuracy. Defensive work: 1 tackle won, 7 pressures."
+  },
+  {
+   "moment": "player_H09",
+   "mode": "analyst",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Luca Voss (LM, Rivergate United): 4 shots, 0 goals, 0.84 xG. Passing: 26 passes at 73.1% accuracy. Defensive work: 1 tackle won, 7 pressures."
+  },
+  {
+   "moment": "player_H09",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "number 3 is not in the evidence",
+    "3 is not a valid goals value"
+   ],
+   "text": "Luca Voss (LM, Rivergate United): 4 शॉट, 3 गोल, 0.84 xG। पासिंग: 26 पास, सटीकता 73.1%। रक्षात्मक योगदान: 1 टैकल जीते, 7 दबाव।"
+  },
+  {
+   "moment": "player_H09",
+   "mode": "analyst",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Luca Voss (LM, Rivergate United): 4 शॉट, 0 गोल, 0.84 xG। पासिंग: 26 पास, सटीकता 73.1%। रक्षात्मक योगदान: 1 टैकल जीते, 7 दबाव।"
+  },
+  {
+   "moment": "player_H09",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "7 is not a valid shots value"
+   ],
+   "text": "Luca Voss had 7 shots for Rivergate United and did not score."
+  },
+  {
+   "moment": "player_H09",
+   "mode": "casual",
+   "lang": "en",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Luca Voss had 4 shots for Rivergate United and did not score."
+  },
+  {
+   "moment": "player_H09",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 0,
+   "agent": "checker",
+   "status": "rejected",
+   "issues": [
+    "7 is not a valid shots value"
+   ],
+   "text": "Luca Voss ने Rivergate United के लिए 7 शॉट लिए लेकिन गोल नहीं कर सके।"
+  },
+  {
+   "moment": "player_H09",
+   "mode": "casual",
+   "lang": "hi",
+   "attempt": 1,
+   "agent": "checker",
+   "status": "accepted",
+   "issues": [],
+   "text": "Luca Voss ने Rivergate United के लिए 4 शॉट लिए लेकिन गोल नहीं कर सके।"
   }
  ]
 }

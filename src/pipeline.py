@@ -61,24 +61,35 @@ def run(db_path):
     facts = metrics.match_facts(conn)
     names = known_names(conn)
     key = moments.key_moments(conn, facts)
-    trace, results = [], []
-    for mo in key:
-        narrations = {}
-        for mode in MODES:
-            for lang in LANGS:
-                narrations[f"{mode}_{lang}"] = run_one(mo, mode, lang, names, trace)
-        results.append({"id": mo["id"], "kind": mo["kind"], "minute": mo["minute"],
-                        "evidence": mo["evidence"], "narrations": narrations})
+    spots = moments.player_spotlights(conn, facts)
+    conn.close()
+    trace = []
+
+    def narrate_all(items):
+        done = []
+        for mo in items:
+            narrations = {}
+            for mode in MODES:
+                for lang in LANGS:
+                    narrations[f"{mode}_{lang}"] = run_one(mo, mode, lang, names, trace)
+            done.append({"id": mo["id"], "kind": mo["kind"], "minute": mo["minute"],
+                         "evidence": mo["evidence"], "narrations": narrations})
+        return done
+
+    results = narrate_all(key)
+    spotlights = narrate_all(spots)
     rejected = sum(1 for t in trace if t["agent"] == "checker" and t["status"] == "rejected")
-    total = sum(len(r["narrations"]) for r in results)
-    fallbacks = sum(1 for r in results for n in r["narrations"].values() if n["fallback"])
-    repaired = sum(1 for r in results for n in r["narrations"].values()
+    every = results + spotlights
+    total = sum(len(r["narrations"]) for r in every)
+    fallbacks = sum(1 for r in every for n in r["narrations"].values() if n["fallback"])
+    repaired = sum(1 for r in every for n in r["narrations"].values()
                    if n["attempts"] > 1 and not n["fallback"])
     model_errors = sum(1 for t in trace if t["status"] == "error")
     summary = {"provider": llm.provider(), "narrations": total,
                "checker_rejections": rejected, "repaired_after_retry": repaired,
                "template_fallbacks": fallbacks, "model_errors": model_errors}
-    return {"match": facts["match"], "moments": results, "summary": summary, "trace": trace}
+    return {"match": facts["match"], "moments": results, "spotlights": spotlights,
+            "summary": summary, "trace": trace}
 
 
 def main():
